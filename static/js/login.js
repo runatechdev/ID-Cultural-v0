@@ -1,6 +1,5 @@
 // Esperar que el DOM cargue
 document.addEventListener("DOMContentLoaded", () => {
-  // Manejar login
   const form = document.getElementById("loginForm");
   const mensajeError = document.getElementById("mensaje-error");
 
@@ -12,7 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const clave = document.getElementById("clave").value.trim();
 
       if (usuario === "admin" && clave === "1234") {
-        window.location.href = "/user/dashboard-usuario.html";
+        localStorage.setItem("rol", "admin");
+        window.location.href = "/user/dashboard-admin.html";
+
+      } else if (usuario === "editor" && clave === "1234") {
+        localStorage.setItem("rol", "editor");
+       window.location.href = "/src/views/pages/editor/panel_editor.html";
+
       } else {
         mensajeError.style.display = "block";
       }
@@ -21,21 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Cargar dinámicamente el navbar
   fetch("/componentes/navbar.html")
-    .then(response => response.text())
-    .then(data => {
+    .then((response) => response.text())
+    .then((data) => {
       document.getElementById("navbar").innerHTML = data;
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Error al cargar el navbar:", err);
     });
 
   // Cargar dinámicamente el footer
   fetch("/componentes/footer.html")
-    .then(response => response.text())
-    .then(data => {
+    .then((response) => response.text())
+    .then((data) => {
       document.getElementById("footer").innerHTML = data;
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Error al cargar el footer:", err);
     });
 });
