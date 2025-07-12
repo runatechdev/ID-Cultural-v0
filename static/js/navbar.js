@@ -2,21 +2,35 @@ window.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const footer = document.getElementById('footer');
 
-  if (navbar) {
-    fetch("/src/views/pages/public/components/navbar.html")
-      .then(res => res.text())
-      .then(html => {
-        navbar.innerHTML = html;
-      })
-      .catch(err => console.error('Error cargando navbar:', err));
+  // Detectar el path actual
+  const path = window.location.pathname;
+
+  // Calcular base path según en qué carpeta estés
+  let basePath = "";
+
+  if (path.includes("/auth/")) {
+    basePath = "../../../../";
+  } else if (path.includes("/public/")) {
+    basePath = "../../../";
+  } else if (path.includes("/pages/")) {
+    basePath = "../../";
+  } else {
+    basePath = "./";
   }
 
-  if (footer) {
-    fetch("/src/views/pages/public/components/footer.html")
+  // Cargar el navbar
+  if (navbar) {
+    fetch(`${basePath}components/navbar.html`)
       .then(res => res.text())
-      .then(html => {
-        footer.innerHTML = html;
-      })
-      .catch(err => console.error('Error cargando footer:', err));
+      .then(html => navbar.innerHTML = html)
+      .catch(err => console.error("🛑 Error cargando navbar:", err));
+  }
+
+  // Cargar el footer si existe
+  if (footer) {
+    fetch(`${basePath}components/footer.html`)
+      .then(res => res.text())
+      .then(html => footer.innerHTML = html)
+      .catch(err => console.error("🛑 Error cargando footer:", err));
   }
 });
