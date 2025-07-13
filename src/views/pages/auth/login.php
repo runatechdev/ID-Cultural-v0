@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>Login - DNI Cultural</title>
-  <link rel="stylesheet" href="/static/css/main.css" />
-  <link rel="stylesheet" href="/static/css/login.css" />
+  <link rel="stylesheet" href="../../../../static/css/main.css" />
+  <link rel="stylesheet" href="../../../../static/css/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
 
-  <div id="navbar"></div>
+  <!-- <div id="navbar"></div> -->
+  <?php include __DIR__ . '../../public/components/navbar.php'; ?>
 
   <main>
     <section class="login-box">
@@ -37,10 +38,9 @@
     </section>
   </main>
 
+    <?php include __DIR__ . '../../public/components/footer.php'; ?>
 
-  <div id="footer"></div>
-
-  <script src="/static/js/main.js"></script>
+  <script src="../../../../static/js/main.js"></script>
 
 </body>
 

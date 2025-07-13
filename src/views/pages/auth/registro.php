@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <div id="navbar"></div>
-
-    <section class="registro-wizard">
+        <?php include __DIR__ . '../../public/components/navbar.php'; ?>
+        
+        <section class="registro-wizard">
         <div class="wizard-pasos">
             <div class="paso activo">
                 <div class="circulo">1</div>
@@ -50,7 +50,7 @@
                 <label for="fechaNacimiento">Fecha de nacimiento</label>
                 <input type="date" id="fechaNacimiento" name="fechaNacimiento" autocomplete="bday" required>
             </div>
-
+            
             <div class="input-group">
                 <label for="genero">Género</label>
                 <select id="genero" name="genero" required>
@@ -60,7 +60,7 @@
                     <option value="otro">Otro</option>
                 </select>
             </div>
-
+            
             <div class="input-group">
                 <label for="pais">País</label>
                 <select id="pais" name="pais" required>
@@ -76,7 +76,7 @@
                     <option value="" disabled selected>Seleccioná una provincia</option>
                 </select>
             </div>
-
+            
             <div class="input-group">
                 <label for="municipio">Municipio/Departamento</label>
                 <select id="municipio" name="municipio" required disabled>
@@ -111,8 +111,8 @@
             <div class="checkbox-group">
                 <input type="checkbox" id="terminos" required>
                 <label for="terminos">Acepto los <a href="/src/views/pages/public/terminos_condiciones.html">Términos y
-                        condiciones</a></label>
-            </div>
+                    condiciones</a></label>
+                </div>
 
             <button type="submit" class="btn-principal">Registrarme</button>
 
@@ -120,7 +120,7 @@
 
         </form>
     </section>
-
+    
     <section id="paso2" class="formulario-paso2">
         <h2>Intereses culturales</h2>
         <p>¿En qué categoría artística te desarrollás actualmente? Seleccioná una o más áreas que mejor representen
@@ -154,7 +154,7 @@
 
     </main>
 
-    <div id="footer"></div>
+    <?php include __DIR__ . '../../public/components/footer.php'; ?>
 
     <!-- Scripts -->
     <script src="../../../../static/js/main.js"></script>
