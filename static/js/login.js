@@ -1,20 +1,41 @@
 // Esperar que el DOM cargue
 document.addEventListener("DOMContentLoaded", () => {
-  // Manejar login
-  const form = document.getElementById("loginForm");
+    const form = document.getElementById("loginForm");
   const mensajeError = document.getElementById("mensaje-error");
-
+  
+  // Manejar login real con backend
   if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const usuario = document.getElementById("usuario").value.trim();
       const clave = document.getElementById("clave").value.trim();
 
-      if (usuario === "admin" && clave === "1234") {
-        window.location.href = "/user/dashboard-usuario.html";
+      const formData = new FormData();
+      formData.append("usuario", usuario);
+      formData.append("clave", clave);
+
+      try {
+        const res = await fetch("http://localhost/ID-Cultural/controllers/verificar_usuario.php", {
+          method: "POST",
+          body: formData
+        });
+
+        const texto = await res.text();
+        console.log("Respuesta:", texto);
+
+        if (texto.includes("✅admin")) {
+        window.location.href = "../admin/dashboard-adm.html";
+      } else if (texto.includes("✅user")) {
+        window.location.href = "../user/dashboard-user.html";
       } else {
-        mensajeError.style.display = "block";
+          mensajeError.textContent = texto;
+          mensajeError.hidden = false;
+        }
+      } catch (error) {
+        console.error("Error al iniciar sesión:", error);
+        mensajeError.textContent = "Error de conexión al servidor.";
+        mensajeError.hidden = false;
       }
     });
   }
@@ -39,3 +60,4 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error al cargar el footer:", err);
     });
 });
+

@@ -1,5 +1,5 @@
 <?php
-define('BASE_URL', '/Proyecto_PP_Dni_cultural');
+define('BASE_URL', '/ID-Cultural');
 
 // Cambia la ruta para que apunte a la carpeta database en la raíz del proyecto
 $dbPath = dirname(__DIR__, 2) . '/database/usuarios.db';
