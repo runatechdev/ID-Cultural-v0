@@ -1,39 +1,35 @@
 <?php
-class Usuario
-{
+class Usuario {
     private $db;
 
-    public function __construct($conexion)
-    {
+    public function __construct($conexion) {
         $this->db = $conexion;
     }
 
-    public function emailExiste($email)
-    {
-        $stmt = $this->db->prepare("SELECT COUNT(*) FROM usuarios WHERE email = ?");
-        $stmt->execute([$email]);
-        return $stmt->fetchColumn() > 0;
-    }
+    public function registrar($datos) {
+        $stmt = $this->db->prepare("
+            INSERT INTO usuarios (
+                nombre, apellido, fecha_nacimiento, genero,
+                pais, provincia, municipio, email, password, rol
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ");
 
-    public function registrar($datos)
-    {
-        $sql = "INSERT INTO usuarios (
-            nombre, apellido, fecha_nacimiento, genero,
-            pais, provincia, municipio, email, password)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        $stmt = $this->db->prepare($sql);
         return $stmt->execute([
-            $datos['nombre'],
-            $datos['apellido'],
-            $datos['fecha_nacimiento'],
+            trim($datos['nombre']),
+            trim($datos['apellido']),
+            $datos['fechaNacimiento'],
             $datos['genero'],
             $datos['pais'],
             $datos['provincia'],
             $datos['municipio'],
-            $datos['email'],
-            password_hash($datos['password'], PASSWORD_DEFAULT)
+            trim($datos['email']),
+            password_hash($datos['password'], PASSWORD_DEFAULT),
+            isset($datos['rol']) ? $datos['rol'] : 'usuario'
         ]);
     }
+
+    public function actualizarRol($usuarioId, $nuevoRol) {
+        $stmt = $this->db->prepare("UPDATE usuarios SET rol = ? WHERE id = ?");
+        return $stmt->execute([$nuevoRol, $usuarioId]);
+    }
 }
-?>

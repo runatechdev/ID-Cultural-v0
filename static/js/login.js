@@ -1,8 +1,8 @@
 // Esperar que el DOM cargue
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("loginForm");
+  const form = document.getElementById("loginForm");
   const mensajeError = document.getElementById("mensaje-error");
-  
+
   // Manejar login real con backend
   if (form) {
     form.addEventListener("submit", async function (e) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formData.append("clave", clave);
 
       try {
-        const res = await fetch("http://localhost/ID-Cultural/controllers/verificar_usuario.php", {
+        const res = await fetch("../../../../controllers/verificar_usuario.php", {
           method: "POST",
           body: formData
         });
@@ -24,11 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const texto = await res.text();
         console.log("Respuesta:", texto);
 
-        if (texto.includes("✅admin")) {
-        window.location.href = "../admin/dashboard-adm.html";
-      } else if (texto.includes("✅user")) {
-        window.location.href = "../user/dashboard-user.html";
-      } else {
+        if (texto.includes("✅")) {
+          window.location.href = "../user/dashboard-user.html";
+        } else {
           mensajeError.textContent = texto;
           mensajeError.hidden = false;
         }
@@ -40,24 +38,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cargar dinámicamente el navbar
-  fetch("/componentes/navbar.html")
+  // Cargar navbar
+  fetch("/Proyecto_PP_Dni_cultural/src/views/pages/public/components/navbar.html")
     .then(response => response.text())
     .then(data => {
-      document.getElementById("navbar").innerHTML = data;
+      const navbar = document.getElementById("navbar");
+      if (navbar) {
+        navbar.innerHTML = data;
+        if (window.lucide) lucide.createIcons?.();
+      }
     })
     .catch(err => {
       console.error("Error al cargar el navbar:", err);
     });
 
-  // Cargar dinámicamente el footer
-  fetch("/componentes/footer.html")
+  // Cargar footer
+  fetch("/Proyecto_PP_Dni_cultural/src/views/pages/public/components/footer.html")
     .then(response => response.text())
     .then(data => {
-      document.getElementById("footer").innerHTML = data;
+      const footer = document.getElementById("footer");
+      if (footer) {
+        footer.innerHTML = data;
+      }
     })
     .catch(err => {
       console.error("Error al cargar el footer:", err);
     });
 });
-
