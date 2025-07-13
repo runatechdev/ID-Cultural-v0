@@ -50,18 +50,15 @@
   </style>
 </head>
 <body>
+
   <header>
-     <div class="logo">
-    <img src="/static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo Santiago del Estero">
-  </div>
+    <div class="logo">
+      <img src="/static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo Santiago del Estero">
+    </div>
     <nav>
       <ul>
         <li><a class="menu" href="../../../../src/views/pages/public/Index.html">Inicio </a></li>
         <li><a class="menu" href="../../../../src/views/pages/auth/login.html">Cerrar Sesión </a></li>
-      </ul>
-    </nav>
-  </header>
-
   <main>
     <h1>Panel de Gestión</h1>
     <ul>
@@ -94,10 +91,31 @@
     <img src="../../../../static/img/lectura.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
     Ver Estado de Solicitud del Artista
   </a>
-</li>
-      
-     
-    </ul>
+
+  <a class="panel-button" href="/src/views/pages/user/abm_artitistas.html">
+    <img src="/static/img/paleta-de-pintura.png" alt="Artistas">
+    Gestionar Artistas
+  </a>
+
+  <a class="panel-button" href="/src/views/pages/user/blanqueo_clave_admin.html">
+    <img src="/static/img/candado.png" alt="Reiniciar Clave">
+    Reiniciar Contraseña
+  </a>
+
+  <a class="panel-button" href="/src/views/pages/user/cambiar_clave.html">
+    <img src="/static/img/correo-electronico.png" alt="Cambiar Clave">
+    Cambiar por Correo
+  </a>
+
+  <a class="panel-button" href="/src/views/pages/user/estado_solicitud.html">
+    <img src="/static/img/lectura.png" alt="Estado">
+    Ver Solicitudes
+  </a>
+
+</div>
+
+
+
   </main>
 
   <div id="footer"></div>
