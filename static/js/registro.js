@@ -1,100 +1,25 @@
-
 // =======================
 // CONFIGURACIÓN INICIAL
 // =======================
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Mostrar el paso 1 al inicio
     mostrarPaso1();
-
-    // Inicializar selects de país/provincia/municipio
     inicializarUbicacion();
-
-    // Inicializar validación de fecha
     inicializarFechaNacimiento();
-
-    // Inicializar validación de intereses
     inicializarValidacionIntereses();
-
-    // Eventos de formulario
     inicializarEventosFormularios();
-
-    // Botones navegación pasos
     inicializarNavegacionPasos();
 });
-
-  const provinciasPorPais = {
-    Argentina: {
-      "Buenos Aires": ["La Plata", "Mar del Plata", "Bahía Blanca"],
-      "Córdoba": ["Córdoba Capital", "Villa Carlos Paz", "Río Cuarto"],
-      "Santiago del Estero": ["Santiago Capital", "La Banda", "Termas de Río Hondo"]
-    }
-  };
-
-  const paisSelect = document.getElementById('pais');
-  const provinciaSelect = document.getElementById('provincia');
-  const municipioSelect = document.getElementById('municipio');
-
-  paisSelect.addEventListener('change', function () {
-    const pais = this.value;
-    provinciaSelect.innerHTML = '<option value="" disabled selected>Seleccioná una provincia</option>';
-    municipioSelect.innerHTML = '<option value="" disabled selected>Seleccioná un municipio</option>';
-    municipioSelect.disabled = true;
-
-    if (provinciasPorPais[pais]) {
-      provinciaSelect.disabled = false;
-      Object.keys(provinciasPorPais[pais]).forEach(function (provincia) {
-        const option = document.createElement('option');
-        option.value = provincia;
-        option.textContent = provincia;
-        provinciaSelect.appendChild(option);
-      });
-    } else {
-      provinciaSelect.disabled = true;
-    }
-  });
-
-  provinciaSelect.addEventListener('change', function () {
-    const pais = paisSelect.value;
-    const provincia = this.value;
-
-    municipioSelect.innerHTML = '<option value="" disabled selected>Seleccioná un municipio</option>';
-
-    if (provinciasPorPais[pais] && provinciasPorPais[pais][provincia]) {
-      municipioSelect.disabled = false;
-      provinciasPorPais[pais][provincia].forEach(function (municipio) {
-        const option = document.createElement('option');
-        option.value = municipio;
-        option.textContent = municipio;
-        municipioSelect.appendChild(option);
-      });
-    } else {
-      municipioSelect.disabled = true;
-    }
-  });
-
-  // Fecha nacimiento
-  const fechaInput = document.getElementById("fechaNacimiento");
-  const hoy = new Date().toISOString().split("T")[0];
-  const min = "1970-01-01";
-  fechaInput.setAttribute("min", min);
-  fechaInput.setAttribute("max", hoy);
 
 // =======================
 // UBICACIÓN DINÁMICA
 // =======================
-
 function inicializarUbicacion() {
     const provinciasPorPais = {
         Argentina: {
             "Buenos Aires": ["La Plata", "Mar del Plata", "Bahía Blanca"],
             "Córdoba": ["Córdoba Capital", "Villa Carlos Paz", "Río Cuarto"],
-            "Santiago del Estero": [
-                "Santiago Capital",
-                "La Banda",
-                "Termas de Río Hondo",
-            ],
-        },
+            "Santiago del Estero": ["Santiago Capital", "La Banda", "Termas de Río Hondo"]
+        }
     };
 
     const paisSelect = document.getElementById("pais");
@@ -103,11 +28,8 @@ function inicializarUbicacion() {
 
     paisSelect.addEventListener("change", function () {
         const pais = this.value;
-
-        provinciaSelect.innerHTML =
-            '<option value="" disabled selected>Seleccioná una provincia</option>';
-        municipioSelect.innerHTML =
-            '<option value="" disabled selected>Seleccioná un municipio</option>';
+        provinciaSelect.innerHTML = '<option value="" disabled selected>Seleccioná una provincia</option>';
+        municipioSelect.innerHTML = '<option value="" disabled selected>Seleccioná un municipio</option>';
         municipioSelect.disabled = true;
 
         if (provinciasPorPais[pais]) {
@@ -127,8 +49,7 @@ function inicializarUbicacion() {
         const pais = paisSelect.value;
         const provincia = this.value;
 
-        municipioSelect.innerHTML =
-            '<option value="" disabled selected>Seleccioná un municipio</option>';
+        municipioSelect.innerHTML = '<option value="" disabled selected>Seleccioná un municipio</option>';
 
         if (provinciasPorPais[pais] && provinciasPorPais[pais][provincia]) {
             municipioSelect.disabled = false;
@@ -147,7 +68,6 @@ function inicializarUbicacion() {
 // =======================
 // VALIDACIÓN DE FECHA
 // =======================
-
 function inicializarFechaNacimiento() {
     const fechaInput = document.getElementById("fechaNacimiento");
     const hoy = new Date().toISOString().split("T")[0];
@@ -159,10 +79,9 @@ function inicializarFechaNacimiento() {
 // =======================
 // VALIDACIÓN DE INTERESES
 // =======================
-
 function inicializarValidacionIntereses() {
     const checkboxes = document.querySelectorAll('input[name="intereses"]');
-    const btnSiguienteIntereses = document.getElementById("btnSiguiente");
+    const btnSiguienteIntereses = document.getElementById("btn-siguiente"); // 👈 corregido ID
 
     if (checkboxes.length && btnSiguienteIntereses) {
         checkboxes.forEach((checkbox) => {
@@ -177,45 +96,80 @@ function inicializarValidacionIntereses() {
 // =======================
 // EVENTOS DE FORMULARIOS
 // =======================
-
-
 function inicializarEventosFormularios() {
-    const interesesForm = document.getElementById("interesesForm");
     const registroForm = document.getElementById("registroForm");
+    const interesesForm = document.getElementById("interesesForm");
 
     if (registroForm) {
-        registroForm.addEventListener("submit", (e) => {
+        registroForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-    if (!registroForm.checkValidity()) {
-        registroForm.reportValidity();
-        return;
-    }
+            if (!registroForm.checkValidity()) {
+                registroForm.reportValidity();
+                return;
+            }
 
-    const email = document.getElementById("email").value.trim();
-    const confirmarEmail = document.getElementById("confirmarEmail").value.trim();
-    const password = document.getElementById("password").value;
-    const confirmarPassword = document.getElementById("confirmarPassword").value;
+            const email = document.getElementById("email").value.trim();
+            const confirmarEmail = document.getElementById("confirmarEmail").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmarPassword = document.getElementById("confirmarPassword").value;
 
-    if (email !== confirmarEmail) {
-        alert("Los correos electrónicos no coinciden.");
-        return;
-    }
+            if (email !== confirmarEmail) {
+                alert("Los correos electrónicos no coinciden.");
+                return;
+            }
 
-    if (password !== confirmarPassword) {
-        alert("Las contraseñas no coinciden.");
-        return;
-    }
-            
-            mostrarPaso2();
+            if (password !== confirmarPassword) {
+                alert("Las contraseñas no coinciden.");
+                return;
+            }
+
+            const formData = new FormData(registroForm);
+
+            try {
+                const res = await fetch("/ID-Cultural/controllers/procesar_registro.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const resultado = await res.text();
+
+                if (resultado.includes("✅")) {
+                    mostrarPaso2(); // ✅ avanzar si el registro fue exitoso
+                } else {
+                    console.log("Respuesta del servidor:", resultado);
+                    alert("Error al registrar tu cuenta. Verificá los datos o mirá la consola.");
+                }
+            } catch (error) {
+                console.error("Error del fetch:", error);
+                alert("No se pudo enviar el formulario de registro.");
+            }
         });
     }
 
     if (interesesForm) {
-        interesesForm.addEventListener("submit", (e) => {
+        interesesForm.addEventListener("submit", async (e) => {
             e.preventDefault();
-            // alert("Formulario completado. Gracias por registrarte en el DNI Cultural.");
-            window.location.href = "registro-completado.html";
+
+            const formData = new FormData(interesesForm);
+
+            try {
+                const res = await fetch("/ID-Cultural/controllers/guardar_intereses.php", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const resultado = await res.text();
+
+                if (resultado.includes("✅")) {
+                    window.location.href = "registro-completado.html";
+                } else {
+                    alert("Error al guardar intereses:\n" + resultado);
+                }
+            } catch (error) {
+                console.error("Error al guardar intereses:", error);
+                alert("No se pudieron guardar los intereses.");
+            }
         });
     }
 }
@@ -223,45 +177,47 @@ function inicializarEventosFormularios() {
 // =======================
 // NAVEGACIÓN DE PASOS
 // =======================
-
 function inicializarNavegacionPasos() {
-    const paso1 = document.querySelector(".formulario-paso1");
-    const paso2 = document.querySelector(".formulario-paso2");
-    const btnSiguiente = document.getElementById("btn-siguiente");
     const btnAnterior = document.getElementById("btn-anterior");
 
-    if (btnSiguiente) {
-        btnSiguiente.addEventListener("click", function () {
-            paso1.classList.remove("active");
-            paso2.classList.add("active");
-        });
-    }
-
     if (btnAnterior) {
-        btnAnterior.addEventListener("click", function () {
-            paso2.classList.remove("active");
-            paso1.classList.add("active");
-        });
+        btnAnterior.addEventListener("click", mostrarPaso1);
     }
 }
 
-function mostrarPaso1() {
-    document.getElementById("paso1").classList.add("active");
-    document.getElementById("paso2").classList.remove("active");
-
-    // Cambiar estado visual de pasos
-    const pasos = document.querySelectorAll(".wizard-pasos .paso");
-    pasos[0].classList.add("activo");
-    pasos[1].classList.remove("activo");
-}
-
+// =======================
+// MOSTRAR PASO 2
+// =======================
 function mostrarPaso2() {
-    document.getElementById("paso1").classList.remove("active");
-    document.getElementById("paso2").classList.add("active");
-
-    // Cambiar estado visual de pasos
+    const paso1 = document.getElementById("paso1");
+    const paso2 = document.getElementById("paso2");
     const pasos = document.querySelectorAll(".wizard-pasos .paso");
+
+    paso1.classList.remove("active");
+    paso2.classList.add("active");
+
     pasos[0].classList.remove("activo");
     pasos[1].classList.add("activo");
+
+    const emailVisible = document.getElementById("email");
+    const emailOculto = document.getElementById("email_oculto");
+
+    if (emailVisible && emailOculto) {
+        emailOculto.value = emailVisible.value.trim();
+    }
 }
 
+// =======================
+// MOSTRAR PASO 1
+// =======================
+function mostrarPaso1() {
+    const paso1 = document.getElementById("paso1");
+    const paso2 = document.getElementById("paso2");
+    const pasos = document.querySelectorAll(".wizard-pasos .paso");
+
+    paso2.classList.remove("active");
+    paso1.classList.add("active");
+
+    pasos[1].classList.remove("activo");
+    pasos[0].classList.add("activo");
+}

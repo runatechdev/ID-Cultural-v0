@@ -57,39 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } else if (usuario === "editor" && clave === "1234") {
       localStorage.setItem("usuarioActivo", "editor");
-      window.location.href = "/src/views/pages/editor/panel_editor.html";
-
+      window.location.href = "/src/views/pages/user/dashboard-editor.html";
 
     } else {
-      
       errorMsg.style.display = "block";
     }
   });
 });
-// NOTICIAS
-document.addEventListener("DOMContentLoaded", () => {
-  const contenedor = document.getElementById("contenedor-noticias");
-  const lista = JSON.parse(localStorage.getItem("noticiasHome") || "[]");
-
-  const ultimas = lista.slice(-3).reverse();
-
-  ultimas.forEach(noticia => {
-    const card = document.createElement("div");
-    card.classList.add("noticia-card");
-
-    card.innerHTML = `
-      ${noticia.imagen ? `<img src="${noticia.imagen}" alt="Imagen de la noticia">` : ""}
-      <h3>${noticia.titulo}</h3>
-      <p>${noticia.contenido}</p>
-      <small>Fecha: ${noticia.fecha}</small>
-    `;
-
-    contenedor.appendChild(card);
-  });
-});
-
-
-
-
-
-
