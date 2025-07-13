@@ -87,9 +87,3 @@ document.addEventListener("DOMContentLoaded", () => {
     contenedor.appendChild(card);
   });
 });
-
-
-
-
-
-
