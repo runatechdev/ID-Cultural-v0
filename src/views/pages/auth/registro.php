@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro del Artista</title>
-  <link rel="stylesheet" href="/static/css/main.css" />
-  <link rel="stylesheet" href="/static/css/registro.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="/ID-Cultural/static/css/main.css" />
+  <link rel="stylesheet" href="/ID-Cultural/static/css/registro.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
 </head>
@@ -31,7 +30,8 @@
 
 <section id="paso1" class="formulario-paso1 active animate__animated animate__fadeInDown">
             <h2>Creá tu cuenta</h2>
-            <form id="registroForm">
+            
+            <form id="registroForm" action="/ID-Cultural/src/php/procesar_registro.php" method="POST">
 
                 <div class="input-group">
                     <label for="nombre">Nombre</label>
@@ -148,8 +148,10 @@
     <div id="footer"></div>
 
   <!-- Scripts -->
-  <script src="/static/js/main.js"></script>
-  <script src="/static/js/registro.js"></script>
+  
+  <script src="/ID-Cultural/static/js/main.js"></script>
+
+  <script src="/ID-Cultural/static/js/registro.js"></script>
 
   <!-- Modal -->
   <div id="modalTerminos" class="modal">

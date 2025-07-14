@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
   const errorMsg = document.getElementById("mensaje-error");
 
-  form.addEventListener("submit", function (e) {
+ /* form.addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que recargue la página
 
     const usuario = document.getElementById("usuario").value.trim().toLowerCase();
@@ -62,5 +62,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       errorMsg.style.display = "block";
     }
-  });
+  });*/
 });
