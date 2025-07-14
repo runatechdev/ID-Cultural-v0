@@ -27,9 +27,5 @@ document.addEventListener("DOMContentLoaded", () => {
         errorMsg.style.display = "block";
       }
     });
-<<<<<<< Updated upstream
   };
-=======
-  }
->>>>>>> Stashed changes
 });
