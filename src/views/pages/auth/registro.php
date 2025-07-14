@@ -32,7 +32,7 @@
 
 <section id="paso1" class="formulario-paso1 active animate__animated animate__fadeInDown">
             <h2>Creá tu cuenta</h2>
-          <form id="registroForm" method="POST" action="/ID-Cultural/public/guardar_registro.php">
+          <form id="registroForm" method="POST" action="/ID-Cultural/src/views/pages/auth/guardar_registro.php">
   <div class="input-group">
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan" autocomplete="given-name" required>
