@@ -1,3 +1,4 @@
+
 // =======================
 // CONFIGURACIÓN INICIAL
 // =======================
@@ -27,9 +28,9 @@ const provinciasPorPais = {
         "Buenos Aires": ["La Plata", "Mar del Plata", "Bahía Blanca"],
         "Córdoba": ["Córdoba Capital", "Villa Carlos Paz", "Río Cuarto"],
         "Santiago del Estero": ["Santiago Capital", "La Banda", "Termas de Río Hondo"]
-    }
+}
 };
-
+    
 const paisSelect = document.getElementById('pais');
 const provinciaSelect = document.getElementById('provincia');
 const municipioSelect = document.getElementById('municipio');
@@ -41,38 +42,38 @@ paisSelect.addEventListener('change', function () {
     municipioSelect.disabled = true;
 
     if (provinciasPorPais[pais]) {
-        provinciaSelect.disabled = false;
+   provinciaSelect.disabled = false;
         Object.keys(provinciasPorPais[pais]).forEach(function (provincia) {
             const option = document.createElement('option');
             option.value = provincia;
             option.textContent = provincia;
             provinciaSelect.appendChild(option);
         });
-    } else {
-        provinciaSelect.disabled = true;
-    }
-});
 
-provinciaSelect.addEventListener('change', function () {
+          provinciaSelect.disabled = true;
+  }
+  });
+
+  provinciaSelect.addEventListener('change', function () {
     const pais = paisSelect.value;
     const provincia = this.value;
 
     municipioSelect.innerHTML = '<option value="" disabled selected>Seleccioná un municipio</option>';
 
     if (provinciasPorPais[pais] && provinciasPorPais[pais][provincia]) {
-        municipioSelect.disabled = false;
+            municipioSelect.disabled = false;
         provinciasPorPais[pais][provincia].forEach(function (municipio) {
             const option = document.createElement('option');
             option.value = municipio;
             option.textContent = municipio;
             municipioSelect.appendChild(option);
         });
-    } else {
-        municipioSelect.disabled = true;
-    }
-});
+         } else {
+               municipioSelect.disabled = true;
+                 }
+                 });
 
-// Fecha nacimiento
+                 // Fecha nacimiento
 const fechaInput = document.getElementById("fechaNacimiento");
 const hoy = new Date().toISOString().split("T")[0];
 const min = "1970-01-01";
@@ -187,13 +188,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // =======================
 
 function inicializarEventosFormularios() {
-    const registroForm = document.getElementById("registroForm");
-    const interesesForm = document.getElementById("interesesForm");
+     const registroForm = document.getElementById("registroForm");
+       const interesesForm = document.getElementById("interesesForm");
 
-    const checkboxes = document.querySelectorAll('#interesesForm input[type="checkbox"]');
+        const checkboxes = document.querySelectorAll('#interesesForm input[type="checkbox"]');
     const btnSiguiente = document.getElementById("btnSiguiente");
 
-    // Habilitar botón de "Siguiente" solo cuando hay al menos un interés seleccionado
+     // Habilitar botón de "Siguiente" solo cuando hay al menos un interés seleccionado
     if (checkboxes.length > 0 && btnSiguiente) {
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener("change", () => {
@@ -203,12 +204,12 @@ function inicializarEventosFormularios() {
         });
     }
 
-    // FORMULARIO DE REGISTRO DE USUARIO
+       // FORMULARIO DE REGISTRO DE USUARIO
     if (registroForm) {
         registroForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            if (!registroForm.checkValidity()) {
+                 if (!registroForm.checkValidity()) {
                 registroForm.reportValidity();
                 return;
             }
@@ -231,7 +232,7 @@ function inicializarEventosFormularios() {
             const formData = new FormData(registroForm);
 
             try {
-                const res = await fetch("../../../controllers/procesar_registro.php", {
+                const res = await fetch("../../../../controllers/procesar_registro.php", {
                     method: "POST",
                     body: formData
                 });
@@ -252,11 +253,11 @@ function inicializarEventosFormularios() {
     }
 
     // FORMULARIO DE INTERESES
-    if (interesesForm) {
-        interesesForm.addEventListener("submit", async (e) => {
+      if (interesesForm) {
+          interesesForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const formData = new FormData(interesesForm);
+               const formData = new FormData(interesesForm);
             const emailInput = document.getElementById("email");
             formData.append("email", emailInput.value.trim());
 
@@ -305,7 +306,7 @@ function inicializarNavegacionPasos() {
         });
     }
 }
-
+  
 // =======================
 // MOSTRAR PASO 2 DESDE BACKEND
 // =======================
@@ -314,7 +315,7 @@ function mostrarPaso2() {
     document.getElementById("paso1").classList.remove("active");
     document.getElementById("paso2").classList.add("active");
 
-    const pasos = document.querySelectorAll(".wizard-pasos .paso");
+      const pasos = document.querySelectorAll(".wizard-pasos .paso");
     pasos[0].classList.remove("activo");
     pasos[1].classList.add("activo");
 

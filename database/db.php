@@ -1,7 +1,6 @@
 <?php
 try {
-    // $db = new PDO("sqlite:" . __DIR__ . "/usuarios.db");
-    $db = new PDO("sqlite:" . __DIR__ . "/../database/usuarios.db");
+    $db = new PDO("sqlite:" . __DIR__ . "/usuarios.db");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Crear tabla de usuarios
@@ -15,8 +14,7 @@ try {
         provincia TEXT NOT NULL,
         municipio TEXT NOT NULL,
         email TEXT NOT NULL UNIQUE,
-        password TEXT NOT NULL,
-        rol TEXT NOT NULL DEFAULT 'usuario'
+        password TEXT NOT NULL
     )");
 
     // Crear tabla de intereses asociados a usuarios
