@@ -1,14 +1,14 @@
-// Esperar que el DOM cargue
+// Lógica del formulario de login
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
-  const mensajeError = document.getElementById("mensaje-error");
+  const errorMsg = document.getElementById("mensaje-error");
 
   // Manejar login real con backend
   if (form) {
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      const usuario = document.getElementById("usuario").value.trim();
+      const usuario = document.getElementById("usuario").value.trim().toLowerCase();
       const clave = document.getElementById("clave").value.trim();
 
       const formData = new FormData();
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.lucide) lucide.createIcons?.();
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Error al cargar el navbar:", err);
     });
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         footer.innerHTML = data;
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Error al cargar el footer:", err);
     });
 });
