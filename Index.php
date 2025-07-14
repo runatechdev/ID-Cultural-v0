@@ -7,14 +7,15 @@
 
   <title>DNI Cultural</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="static/css/main.css" />
+  <!-- <link rel="stylesheet" href="/static/css/main.css" /> -->
+  <link rel="stylesheet" href="/ID-Cultural/static/css/main.css" />
 
 </head>
 
 <body>
 
-  <div id="navbar"></div>
-
+  <!-- <div id="navbar"></div> -->
+<?php include __DIR__ . '/src/views/pages/public/components/navbar.html'; ?>
   <main>
     <section class="hero">
       <div class="hero-text">
@@ -37,30 +38,22 @@
           culturales y proyectarlas hacia el futuro.</p>
 
         <p><em>ID Cultural — La identidad de un pueblo, en un solo lugar.</em></p>
-<!--------------------------------------------------------------NOTICIAS!----->
-  <section id="noticias-recientes" class="noticias-home">
-  <h2>Últimas Noticias</h2>
-  <div id="contenedor-noticias"></div>
-</section>
-
-<!---------------------------------------------------------------------------->
 
       </div>
       <div class="hero-image">
         <picture>
-          <source srcset="/static/img/logo.jpg" type="image">
-          <img src="static/img/logo.jpg" alt="Casa Castro" loading="lazy" />
+          <source srcset="/ID-Cultural/static/img/logo.jpg" type="image">
+          <img src="/ID-Cultural/static/img/logo.jpg" alt="Casa Castro" />
         </picture>
       </div>
     </section>
   </main>
 
-  <div id="footer"></div>
-
-  <script src="static/js/main.js"></script>
+  <!-- <div id="footer"></div> -->
+<?php include __DIR__ . '/src/views/pages/public/components/footer.html'; ?>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="/static/js/navbar.js"></script>
-  
+  <script src="/ID-Cultural/static/js/navbar.js"></script>
+  <script src="/ID-Cultural/static/js/main.js"></script>
 
 </body>
 

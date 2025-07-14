@@ -2,35 +2,43 @@ window.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const footer = document.getElementById('footer');
 
-  // Detectar el path actual
-  const path = window.location.pathname;
-
-  // Calcular base path según en qué carpeta estés
-  let basePath = "";
-
-  if (path.includes("/auth/")) {
-    basePath = "../../../../";
-  } else if (path.includes("/public/")) {
-    basePath = "../../../";
-  } else if (path.includes("/pages/")) {
-    basePath = "../../";
-  } else {
-    basePath = "./";
-  }
-
-  // Cargar el navbar
   if (navbar) {
-    fetch(`${basePath}components/navbar.html`)
+    fetch("/Proyecto_PP_Dni_cultural/src/views/pages/public/components/navbar.html")
       .then(res => res.text())
-      .then(html => navbar.innerHTML = html)
-      .catch(err => console.error("🛑 Error cargando navbar:", err));
+      .then(html => {
+        navbar.innerHTML = "";
+        navbar.insertAdjacentHTML("beforeend", html);
+        if (window.lucide) lucide.createIcons(); // activa íconos si usás Lucide
+      })
+      .catch(err => console.error("Error al cargar navbar:", err));
   }
 
-  // Cargar el footer si existe
   if (footer) {
-    fetch(`${basePath}components/footer.html`)
+    fetch("/Proyecto_PP_Dni_cultural/src/views/pages/public/components/footer.html")
       .then(res => res.text())
-      .then(html => footer.innerHTML = html)
-      .catch(err => console.error("🛑 Error cargando footer:", err));
+      .then(html => {
+        footer.innerHTML = "";
+        footer.insertAdjacentHTML("beforeend", html);
+      })
+      .catch(err => console.error("Error al cargar footer:", err));
   }
 });
+
+// const basePath = "/Proyecto_PP_Dni_cultural/src/views/pages/public/components/";
+
+// fetch(basePath + "navbar.html")
+//   .then(res => res.ok ? res.text() : Promise.reject("Navbar no encontrado"))
+//   .then(html => {
+//     document.getElementById("navbar").innerHTML = "";
+//     document.getElementById("navbar").insertAdjacentHTML("beforeend", html);
+//     if (window.lucide) lucide.createIcons();
+//   })
+//   .catch(err => console.error("Error cargando navbar:", err));
+
+// fetch(basePath + "footer.html")
+//   .then(res => res.ok ? res.text() : Promise.reject("Footer no encontrado"))
+//   .then(html => {
+//     document.getElementById("footer").innerHTML = "";
+//     document.getElementById("footer").insertAdjacentHTML("beforeend", html);
+//   })
+//   .catch(err => console.error("Error cargando footer:", err));
