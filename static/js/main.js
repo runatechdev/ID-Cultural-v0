@@ -11,4 +11,8 @@ async function includeHTML(id, file) {
       console.error("Error al incluir HTML:", error);
     }
   }
+<<<<<<< Updated upstream
 }
+=======
+};
+>>>>>>> Stashed changes

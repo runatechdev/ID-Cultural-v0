@@ -21,11 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } else if (usuario === "editor" && clave === "1234") {
         localStorage.setItem("usuarioActivo", "editor");
-        window.location.href = "/ID-Cultural/src/views/pages/user/dashboard-editor.html";
+        window.location.href = "/ID-Cultural/src/views/pages/editor/dashboard-editor.html";
 
       } else {
         errorMsg.style.display = "block";
       }
     });
+<<<<<<< Updated upstream
   };
+=======
+  }
+>>>>>>> Stashed changes
 });
