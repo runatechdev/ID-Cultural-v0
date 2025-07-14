@@ -146,8 +146,9 @@
     <?php include __DIR__ . '/../public/components/footer.html'; ?>
 
   <!-- Scripts -->
-  <script src="/ID-Cultural/static/js/main.js"></script>
-  <script src="/ID-Cultural/static/js/registro.js"></script>
+  <script src="../../../../static/js/main.js" defer></script>
+  <script src="../../../../static/js/registro.js" defer></script>
+
 
   <!-- Modal -->
   <div id="modalTerminos" class="modal">

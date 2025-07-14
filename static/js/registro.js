@@ -127,23 +127,22 @@ function inicializarEventosFormularios() {
             const formData = new FormData(registroForm);
 
             try {
-                const res = await fetch("/ID-Cultural/controllers/procesar_registro.php", {
-                    method: "POST",
-                    body: formData
-                });
+    const res = await fetch("/ID-Cultural/src/controllers/procesar_registro.php", {
+        method: "POST",
+        body: formData
+    });
 
-                const resultado = await res.text();
+    const resultado = await res.text();
 
-                if (resultado.includes("✅")) {
-                    mostrarPaso2(); // ✅ avanzar si el registro fue exitoso
-                } else {
-                    console.log("Respuesta del servidor:", resultado);
-                    alert("Error al registrar tu cuenta. Verificá los datos o mirá la consola.");
-                }
-            } catch (error) {
-                console.error("Error del fetch:", error);
-                alert("No se pudo enviar el formulario de registro.");
-            }
+    if (resultado.includes("✅")) {
+        mostrarPaso2();
+    } else {
+        alert("Error al registrar tu cuenta. Verificá los datos ingresados.");
+    }
+} catch (error) {
+    alert("No se pudo enviar el formulario de registro.");
+}
+
         });
     }
 

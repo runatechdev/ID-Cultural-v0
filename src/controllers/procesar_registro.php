@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../database/db.php';
-require_once __DIR__ . '/../src/models/Usuario.php';
+require_once __DIR__ . '/../../database/db.php';
+require_once __DIR__ . '/../models/Usuario.php';
 
 $usuario = new Usuario($db);
 
