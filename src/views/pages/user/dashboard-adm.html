@@ -3,10 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Gestión - ID Cultural</title>
-  <link rel="stylesheet" href="/static/css/normalize.css">
-  <link rel="stylesheet" href="/static/css/main.css">
-  <link rel="stylesheet" href="/static/css/dashboard-adm.css"> <!-- NUEVO ARCHIVO CSS -->
+  <title>Panel de Gestión - DNI Cultural</title>
+  <link rel="stylesheet" href="../../../../static/css/normalize.css">
+  <link rel="stylesheet" href="../../../../static/css/main.css">
+  <style>
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    }
+
+    main h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #D50032;
+      text-align: center;
+    }
+
+    main ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    main ul li {
+      margin: 15px 0;
+    }
+
+    main ul li a {
+      display: block;
+      padding: 15px;
+      background-color: #0075c4;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    main ul li a:hover {
+      background-color: #005999;
+      transform: scale(1.02);
+    }
+  </style>
 </head>
 <body>
 
@@ -16,20 +57,39 @@
     </div>
     <nav>
       <ul>
-        <li><a class="menu" href="/src/views/pages/public/Index.html">Inicio</a></li>
-        <li><a class="menu" href="/src/views/pages/auth/login.html">Cerrar Sesión</a></li>
-      </ul>
-    </nav>
-  </header>
-
+        <li><a class="menu" href="../../../../src/views/pages/public/Index.html">Inicio </a></li>
+        <li><a class="menu" href="../../../../src/views/pages/auth/login.html">Cerrar Sesión </a></li>
   <main>
-    
-  <h1>Panel de Gestión</h1>
-  <div class="panel-grid">
+    <h1>Panel de Gestión</h1>
+    <ul>
+  <li><a href="../../../../src/views/pages/user/abm_usuarios.html">
+    <img src="../../../../static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
+    ABM de Usuarios
+  </a>
+</li>
 
-  <a class="panel-button" href="/src/views/pages/user/abm_usuarios.html">
-    <img src="/static/img/perfil-del-usuario.png" alt="Usuarios">
-    Gestionar Usuarios
+  <li><a href="../../../../src/views/pages/user/abm_artitistas.html">
+    <img src="../../../../static/img/paleta-de-pintura.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
+    ABM de Artistas
+  </a>
+</li>
+
+  <li><a href="../../../../src/views/pages/user/blanqueo_clave_admin.html">
+    <img src="../../../../static/img/candado.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
+    Blanqueo de Clave(Admin)
+  </a>
+</li>
+
+  
+  <li><a href="../../../../src/views/pages/user/cambiar_clave.html">
+    <img src="../../../../static/img/correo-electronico.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
+    Cambiar Clave con Correo
+  </a>
+</li>
+    
+<li><a href="../../../../src/views/pages/user/estado_solicitud.html">
+    <img src="../../../../static/img/lectura.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
+    Ver Estado de Solicitud del Artista
   </a>
 
   <a class="panel-button" href="/src/views/pages/user/abm_artitistas.html">
@@ -59,6 +119,7 @@
   </main>
 
   <div id="footer"></div>
-  <script src="/static/js/main.js"></script>
+
+  <script src="../../../../static/js/main.js"></script>
 </body>
 </html>
