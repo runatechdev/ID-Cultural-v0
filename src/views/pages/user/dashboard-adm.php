@@ -50,15 +50,15 @@
   </style>
 </head>
 <body>
-
+<?php include("../../../../components/navbar.php"); ?>
   <header>
     <div class="logo">
-      <img src="/static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo Santiago del Estero">
+      <img src="/ID-Cultural/static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo">
     </div>
     <nav>
       <ul>
-        <li><a class="menu" href="../../../../src/views/pages/public/Index.html">Inicio </a></li>
-        <li><a class="menu" href="../../../../src/views/pages/auth/login.html">Cerrar Sesión </a></li>
+        <li><a class="menu" href="/ID-Cultural/Index.php">Inicio </a></li>
+        <li><a class="menu" href="../../../../src/views/pages/auth/login.php">Cerrar Sesión </a></li>
   <main>
     <h1>Panel de Gestión</h1>
     <ul>
@@ -118,8 +118,10 @@
 
   </main>
 
-  <div id="footer"></div>
+ <?php include("../../../../components/footer.php"); ?>
 
-  <script src="../../../../static/js/main.js"></script>
+  <script src="/ID-Cultural/static/js/main.js"></script>
+  <script src="/ID-Cultural/static/js/navbar.js"></script>
+
 </body>
 </html>

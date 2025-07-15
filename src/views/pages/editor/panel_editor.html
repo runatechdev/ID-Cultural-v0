@@ -10,7 +10,7 @@
   <div id="navbar"></div>
 
   <main class="noticia-main">
-    <h1>Cargar noticia para el Home</h1>
+    <h1>Noticias del Home</h1>
 
    <form id="form-noticia">
   <input type="hidden" id="noticia-id" />
@@ -28,9 +28,24 @@
 </form>
 
 
-    <div id="mensaje-confirmacion" hidden>
-      ✅ Noticia guardada correctamente.
-    </div>
+    <div id="mensaje-confirmacion" hidden>✅ Noticia guardada correctamente.</div>
+
+    <hr>
+
+    <h2>Listado de Noticias</h2>
+    <table id="tabla-noticias">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Contenido</th>
+          <th>Fecha</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Noticias cargadas -->
+      </tbody>
+    </table>
   </main>
 
   <div id="footer"></div>
