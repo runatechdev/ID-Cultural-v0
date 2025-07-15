@@ -18,13 +18,12 @@
       <h2>Iniciar sesión</h2>
 
       <form id="loginForm" novalidate>
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" autocomplete="username"
-          required>
+        <label for="email">Correo:</label>
+        <input type="text" id="email" name="email" placeholder="Ingrese su correo" autocomplete="email" required />
 
         <label for="clave">Contraseña:</label>
         <div class="password-wrapper">
-          <input type="password" id="clave" name="clave" placeholder="Ingrese su contraseña"
+          <input type="password" id="password" name="password" placeholder="Ingrese su contraseña"
             autocomplete="current-password" required>
         </div>
 
@@ -39,9 +38,9 @@
 
 <?php include("../../../../components/footer.php"); ?>
 
-  <script src="static/js/main.js"></script>
-  <script src="static/js/navbar.js"></script>
-  <script src="static/js/login.js"></script>
+  <script src="/ID-Cultural/static/js/main.js"></script>
+  <script src="/ID-Cultural/static/js/navbar.js"></script>
+  <script src="/ID-Cultural/static/js/login.js"></script>
 
 </body>
 
