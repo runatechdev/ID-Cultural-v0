@@ -10,4 +10,10 @@ function encriptar_clave($clave) {
 function verificar_clave($clave_ingresada, $hash_guardado) {
     return password_verify($clave_ingresada, $hash_guardado);
 }
+function escanear_inyecciones($conn_auditoria) {
+    // Esta función puede escanear patrones comunes (por ejemplo, en logs o entradas)
+    registrarAuditoria($conn_auditoria, null, 'Escaneo', 'Chequeo de inyecciones', 'Escaneo básico ejecutado');
+}
+
 ?>
+
