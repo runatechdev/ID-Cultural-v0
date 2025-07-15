@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +9,12 @@
   <link rel="stylesheet" href="../../../../static/css/registro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
+
 </head>
 
 <body>
    <?php include("../../../../components/navbar.php"); ?>
+
         <section class="registro-wizard">
             <div class="wizard-pasos">
                 <div class="paso activo">
@@ -28,8 +31,7 @@
 
 <section id="paso1" class="formulario-paso1 active animate__animated animate__fadeInDown">
             <h2>Creá tu cuenta</h2>
-            
-            <form id="registroForm" action="/ID-Cultural/src/php/procesar_registro.php" method="POST">
+            <form id="registroForm">
 
                 <div class="input-group">
                     <label for="nombre">Nombre</label>
