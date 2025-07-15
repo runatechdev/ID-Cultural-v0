@@ -1,37 +1,36 @@
+<?php
+require_once(__DIR__ . '/procesar_login.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <title>Login - DNI Cultural</title>
-  <link rel="stylesheet" href="/ID-Cultural/static/css/main.css">
-  <link rel="stylesheet" href="/ID-Cultural/static/css/login.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="/ID-Cultural/static/css/main.css" />
+  <link rel="stylesheet" href="/ID-Cultural/static/css/login.css" />
 </head>
-
 <body>
-
     <?php include("../../../../components/navbar.php"); ?>
 
   <main>
     <section class="login-box">
       <h2>Iniciar sesión</h2>
 
-      <form id="loginForm" novalidate>
-        <label for="email">Correo:</label>
-        <input type="text" id="email" name="email" placeholder="Ingrese su correo" autocomplete="email" required />
+      <?php if (!empty($message)): ?>
+        <p class="error-msg"><?= htmlspecialchars($message) ?></p>
+      <?php endif; ?>
 
-        <label for="clave">Contraseña:</label>
-        <div class="password-wrapper">
-          <input type="password" id="password" name="password" placeholder="Ingrese su contraseña"
-            autocomplete="current-password" required>
-        </div>
+      <form action="login.php" method="post">
+        <input type="hidden" name="token" value="<?= generar_token_csrf(); ?>">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" autocomplete="username" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" name="password" autocomplete="current-password" required>
 
         <input type="submit" value="Ingresar">
-
         <p class="forgot-pass"><a href="#">¿Olvidaste tu contraseña?</a></p>
       </form>
-
       <p id="mensaje-error" class="error-msg" hidden>Usuario o contraseña incorrectos.</p>
     </section>
   </main>

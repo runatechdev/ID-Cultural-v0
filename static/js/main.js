@@ -29,9 +29,13 @@ function cargarNoticiasHome() {
   const lista = JSON.parse(localStorage.getItem("noticiasHome") || "[]");
   const ultimas = lista.slice(-3).reverse();
 
+ /* form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita que recargue la página
+
   ultimas.forEach(noticia => {
     const card = document.createElement("div");
     card.classList.add("noticia-card");
+
 
     card.innerHTML = `
       ${noticia.imagen ? `<img src="${noticia.imagen}" alt="Imagen de la noticia">` : ""}
@@ -40,6 +44,24 @@ function cargarNoticiasHome() {
       <small>Fecha: ${noticia.fecha}</small>
     `;
 
+    // Validación de usuarios
+    if (usuario === "admin" && clave === "1234") {
+      localStorage.setItem("usuarioActivo", "admin");
+      window.location.href = "/src/views/pages/user/dashboard-adm.html";
+
+    } else if (usuario === "artista" && clave === "1234") {
+      localStorage.setItem("usuarioActivo", "artista");
+      window.location.href = "/src/views/pages/user/dashboard-user.html";
+
+    } else if (usuario === "editor" && clave === "1234") {
+      localStorage.setItem("usuarioActivo", "editor");
+      window.location.href = "/src/views/pages/user/dashboard-editor.html";
+
+    } else {
+      errorMsg.style.display = "block";
+    }
+  });*/
+});
     contenedor.appendChild(card);
   });
 }
