@@ -11,7 +11,7 @@ Proyecto desarrollado para la Subsecretaría de Cultura de Santiago del Estero c
 ---
 
 ## 🗂️ Estructura del Proyecto
-
+```
 ID_Cultural/
 │
 ├── src/
@@ -52,7 +52,7 @@ ID_Cultural/
 └── docs/
 ├── manual-usuario.pdf
 └── informe-tecnico.docx
-
+```
 
 ---
 
