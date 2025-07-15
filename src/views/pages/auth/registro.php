@@ -5,15 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro del Artista</title>
-  <link rel="stylesheet" href="/static/css/main.css" />
-  <link rel="stylesheet" href="/static/css/registro.css" />
+  <link rel="stylesheet" href="../../../../static/css/main.css">
+  <link rel="stylesheet" href="../../../../static/css/registro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
 </head>
 
 <body>
-  <div id="navbar"></div>
+   <?php include("../../../../components/navbar.php"); ?>
 
         <section class="registro-wizard">
             <div class="wizard-pasos">
@@ -145,10 +145,11 @@
 
     </main>
 
-    <div id="footer"></div>
+     <?php include("../../../../components/footer.php"); ?>
 
   <!-- Scripts -->
   <script src="/static/js/main.js"></script>
+  <script src="/static/js/navbar.js"></script>
   <script src="/static/js/registro.js"></script>
 
   <!-- Modal -->

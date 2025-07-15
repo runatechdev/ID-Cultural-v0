@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  
+  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -12,8 +12,8 @@
 </head>
 
 <body>
-
-  <div id="navbar"></div>
+  
+  <?php include("components/navbar.php"); ?>
 
   <main>
     <section class="hero">
@@ -55,7 +55,7 @@
     </section>
   </main>
 
-  <div id="footer"></div>
+  <?php include("components/footer.php"); ?>
 
   <script src="static/js/main.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
