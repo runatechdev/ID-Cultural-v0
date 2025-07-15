@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Noticias del Home</title>
-  <link rel="stylesheet" href="/static/css/main.css">
-  <link rel="stylesheet" href="/static/css/editor_noticias.css">
+  <link rel="stylesheet" href="../../../../static/css/main.css">
+  <link rel="stylesheet" href="../../../../static/css/editor_noticias.css">
 </head>
 <body>
-  <div id="navbar"></div>
+  <?php include("../../../../components/navbar.php"); ?>
 
   <main class="noticia-main">
     <h1>Noticias del Home</h1>
@@ -48,9 +48,11 @@
     </table>
   </main>
 
-  <div id="footer"></div>
+  <?php include("../../../../components/footer.php"); ?>
 
-  <script src="/static/js/noticias_editor.js"></script>
-  <script src="/static/js/main.js"></script>
+  <script src="/ID-Cultural/static/js/main.js"></script>
+  <script src="/ID-Cultural/static/js/navbar.js"></script>
+  <script src="/ID-Cultural/static/js/noticias_editor.js"></script>
+  
 </body>
 </html>
