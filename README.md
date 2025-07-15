@@ -11,50 +11,28 @@ Proyecto desarrollado para la Subsecretaría de Cultura de Santiago del Estero c
 ---
 
 ## 🗂️ Estructura del Proyecto
-```
-ID_Cultural/
-│
-├── src/
-│ ├── controllers/ # Lógica del sistema y gestión de rutas
-│ ├── models/ # Representación de datos
-│ └── views/ # Interfaz HTML
-│ ├── components/ # Navbar, footer, etc.
-│ └── pages/
-│ ├── public/ # Inicio, búsqueda, eventos
-│ ├── auth/ # Login, registro
-│ ├── user/ # Panel de artistas
-│ └── admin/ # Administración del sistema
-│
-├── static/
-│ ├── css/
-│ │ ├── main.css # Estilos generales
-│ │ ├── login.css # Estilos por página
-│ │ ├── admin.css
-│ │ └── wiki.css
-│ ├── js/
-│ │ ├── login.js
-│ │ └── admin.js
-│ └── img/
-│ └── logo.png
-│
-├── database/
-│ ├── esquema.sql
-│ └── datos-ejemplo.sql
-│
-├── config/
-│ ├── db.php # Conexión a base de datos
-│ └── rutas.php
-│
-├── tests/
-│ ├── test-usuarios.js
-│ └── test-artistas.js
-│
-└── docs/
-├── manual-usuario.pdf
-└── informe-tecnico.docx
-```
 
----
+htdocs/
+├── index.php                    # Entrada principal del sistema o redirección
+├── ID-Cultural/                 # Carpeta principal del proyecto
+│   ├── backend/                 # Lógica del servidor
+│   │   ├── config/              # Conexión a la base de datos, constantes
+│   │   ├── controllers/         # Controladores PHP
+│   │   ├── models/              # Clases que representan entidades
+│   │   └── db/                  # Archivos de base de datos (SQLite/MySQL)
+│   ├── components/              # Elementos reutilizables como navbar y footer
+│   ├── src/                     # Archivos relacionados a la vista
+│   │   └── views/               # Vistas de la aplicación
+│   │       └── pages/
+│   │           ├── auth/        # Registro, login, confirmación de cuenta
+│   │           ├── public/      # Páginas públicas (términos, info general)
+│   │           └── user/        # Perfil de usuario, configuración
+│   ├── static/                  # Archivos estáticos
+│   │   ├── css/                 # Hojas de estilo
+│   │   ├── js/                  # Scripts JavaScript
+│   │   └── images/              # Imágenes usadas en el front-end
+│   └── .git/                    # Repositorio Git (si está inicializado)
+
 
 ## ⚙️ Tecnologías Utilizadas
 
