@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/codoAcodo.ico" type="image/x-icon">
     <title>Validación del Artista</title>
-  <link rel="stylesheet" href="../../../../static/css/main.css" />
-  <link rel="stylesheet" href="../../../../static/css/validacion.css" />
+    <link rel="stylesheet" href="../../../../static/css/main.css" />
+    <link rel="stylesheet" href="../../../../static/css/validacion.css" />
 </head>
 
 <body>
@@ -28,59 +28,60 @@
 
     <main>
         <h1> DNI Cultural</h1>
-        <h2 >Acceso Artistas  🔒  <h2>
+        <h2>Acceso Artistas 🔒 <h2>
 
 
-        <!-- Formulario de Login -->
-         
-        <div id="login-form">
-            <form id="login" onsubmit="return validarLogin(event)">
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
-                <label for="clave">Clave:</label>
-                <input type="password" id="clave" name="clave" required>
-                <input type="submit" value="Ingresar 🚪">
-            </form>
-        </div>
+                <!-- Formulario de Login -->
 
-        <!-- Panel de Validación -->
-        <div id="panel-validacion" style="display:none;">
-            <h2>Registros Pendientes de Validación 📝</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Género</th>
-                        <th>Área</th>
-                        <th>Descripción</th>
-                        <th>Imagen</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla-registros"></tbody>
-            </table>
-        </div>
-
-        <!-- Panel de Perfil del Artista -->
-        <div id="panel-perfil" style="display:none;">
-            <h2>Perfil del Artista</h2>
-            <div class="profile-header">
-                <div class="profile-image">
-                    <img src="ruta/a/imagen.jpg" alt="Foto del Artista">
+                <div id="login-form">
+                    <form id="login" onsubmit="return validarLogin(event)">
+                        <label for="usuario">Usuario:</label>
+                        <input type="text" id="usuario" name="usuario" required>
+                        <label for="clave">Clave:</label>
+                        <input type="password" id="clave" name="clave" required>
+                        <input type="submit" value="Ingresar 🚪">
+                    </form>
                 </div>
-                <div class="profile-info">
-                    <h3>Nombre del Artista</h3>
-                    <p><strong>Género:</strong> Pintura</p>
-                    <p><strong>Año de Nacimiento:</strong> 1980</p>
-                    <p><strong>Ubicación:</strong> Santiago del Estero</p>
-                    <p><strong>Descripción:</strong> Artista con más de 20 años de trayectoria, reconocido por su trabajo en la pintura contemporánea.</p>
+
+                <!-- Panel de Validación -->
+                <div id="panel-validacion" style="display:none;">
+                    <h2>Registros Pendientes de Validación 📝</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Género</th>
+                                <th>Área</th>
+                                <th>Descripción</th>
+                                <th>Imagen</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-registros"></tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="actions">
-                <button onclick="solicitarActualizacion()">Solicitar Actualización de Perfil 📄</button>
-                <button onclick="verObras()">Ver Obras 📂</button>
-            </div>
-        </div>
+
+                <!-- Panel de Perfil del Artista -->
+                <div id="panel-perfil" style="display:none;">
+                    <h2>Perfil del Artista</h2>
+                    <div class="profile-header">
+                        <div class="profile-image">
+                            <img src="ruta/a/imagen.jpg" alt="Foto del Artista">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Nombre del Artista</h3>
+                            <p><strong>Género:</strong> Pintura</p>
+                            <p><strong>Año de Nacimiento:</strong> 1980</p>
+                            <p><strong>Ubicación:</strong> Santiago del Estero</p>
+                            <p><strong>Descripción:</strong> Artista con más de 20 años de trayectoria, reconocido por
+                                su trabajo en la pintura contemporánea.</p>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button onclick="solicitarActualizacion()">Solicitar Actualización de Perfil 📄</button>
+                        <button onclick="verObras()">Ver Obras 📂</button>
+                    </div>
+                </div>
     </main>
 
     <footer>
@@ -89,29 +90,30 @@
 
 
 
-        // Simulando los registros de artistas para el panel de validación
-        <script>
-  function validarLogin(event) {
-    event.preventDefault(); // Evita que se recargue la página
+    // Simulando los registros de artistas para el panel de validación
+    <script>
+        function validarLogin(event) {
+            event.preventDefault(); // Evita que se recargue la página
 
-    const usuario = document.getElementById("usuario").value;
-    const clave = document.getElementById("clave").value;
+            const usuario = document.getElementById("usuario").value;
+            const clave = document.getElementById("clave").value;
 
-    // Claves de ejemplo (solo para prueba, ¡no lo uses así en producción!)
-    const usuarioValido = "admin";
-    const claveValida = "1234";
+            // Claves de ejemplo (solo para prueba, ¡no lo uses así en producción!)
+            const usuarioValido = "admin";
+            const claveValida = "1234";
 
-    if (usuario === usuarioValido && clave === claveValida) {
-      document.getElementById("login-form").style.display = "none";
-      document.getElementById("panel-validacion").style.display = "block";
-    } else {
-      alert("Usuario o clave incorrectos");
-    }
+            if (usuario === usuarioValido && clave === claveValida) {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("panel-validacion").style.display = "block";
+            } else {
+                alert("Usuario o clave incorrectos");
+            }
 
-    return false;
-  }
-</script>
-
+            return false;
+        }
+    </script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/navbar.js"></script>
 
     </script>
 </body>
