@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Digital - DNI Cultural</title>
-    <link rel="stylesheet" href="/ID-Cultural/static/css/main.css" />
+    <link rel="stylesheet" href="../../../../static/css/main.css" />
     <!-- Asegúrate de que este archivo exista y contenga el estilo base -->
-    <link rel="stylesheet" href="/ID-Cultural/static/css/wiki.css" /> <!-- Estilo específico de la Biblioteca Digital -->
+    <link rel="stylesheet" href="../../../../static/css/wiki.css" /> <!-- Estilo específico de la Biblioteca Digital -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
 <body>
 
-    <!-- <div id="navbar"></div> -->
-    <?php include __DIR__ . '/../public/components/navbar.html'; ?>
+       <?php include("../../../../components/navbar.php"); ?>
+
 
     <!-- Contenido Principal -->
     <main>
-        <img src="/ID-Cultural/static/img/portada.png" alt="Logo Santiago del Estero">
+        <img src="../../../..//static/img/portada.png" alt="Logo Santiago del Estero">
 
         <!-- Búsqueda -->
 <div class="search">
@@ -49,13 +49,13 @@
         <h2>🎨 Artistas Famosos</h2>
 
         <div class="famoso">
-            <img src="/ID-Cultural/static/img/merce.jpg" alt="Mercedes Sosa">
+            <img src="../../../../static/img/merce.jpg" alt="Mercedes Sosa">
             <h4>Mercedes Sosa</h4>
             <p>Cantante y referente del folklore argentino.</p>
         </div>
 
         <div class="famoso">
-            <img src="/ID-Cultural/static/img/berni.jpg" alt="Antonio Berni">
+            <img src="../../../../static/img/berni.jpg" alt="Antonio Berni">
             <h4>Antonio Berni</h4>
             <p>Pintor y grabador destacado por su arte social.</p>
         </div>
@@ -68,7 +68,7 @@
                 <div class="categoria" data-category="Música">
                     <h3>Música</h3>
                     <div class="card">
-                        <img src="/ID-Cultural/static/img/juanperez.jpg" alt="Juan Pérez">
+                        <img src="../../../../static/img/juanperez.jpg" alt="Juan Pérez">
                         <div class="card-info">
                             <h4>Juan Pérez</h4>
                             <p>Guitarrista y compositor de música folclórica.</p>
@@ -80,7 +80,7 @@
                 <div class="categoria" data-category="Literatura">
                     <h3>Literatura</h3>
                     <div class="card">
-                        <img src="/ID-Cultural/static/img/dem.jpg" alt="María González">
+                        <img src="../../../../static/img/dem.jpg" alt="María González">
                         <div class="card-info">
                             <h4>María González</h4>
                             <p>Escritora y poeta contemporánea.</p>
@@ -94,10 +94,11 @@
     </div>
 
     <!-- Footer -->
-    <!-- <div id="footer"></div> -->
-    <?php include __DIR__ . '/../public/components/footer.html'; ?>
+       <?php include("../../../../components/footer.php"); ?>
 
-    <script src="/ID-Cultural/static/js/main.js"></script>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/navbar.js"></script>
 
 </body>
 
