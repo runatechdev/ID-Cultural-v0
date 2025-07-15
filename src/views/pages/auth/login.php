@@ -37,7 +37,7 @@
     </section>
   </main>
 
-<?php include(__DIR__ . "../components/footer.php"); ?>
+<?php include("../../../../components/footer.php"); ?>
 
   <script src="static/js/main.js"></script>
   <script src="static/js/navbar.js"></script>
