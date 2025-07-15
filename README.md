@@ -81,6 +81,7 @@ DNI_Cultural/
 - Maximiliano Fabián Padilla
 - Marcos Ariel Romano
 - Mario Sebastián Ruiz
+- Sandra Soledad Sanchez
 
 Colaboración: Subsecretaría de Cultura de Santiago del Estero
 
