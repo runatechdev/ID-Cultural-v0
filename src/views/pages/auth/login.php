@@ -10,11 +10,12 @@ require_once(__DIR__ . '/procesar_login.php');
   <link rel="stylesheet" href="/ID-Cultural/static/css/login.css" />
 </head>
 <body>
-  <?php include __DIR__ . '/../public/components/navbar.html'; ?>
+    <?php include("../../../../components/navbar.php"); ?>
 
   <main>
     <section class="login-box">
       <h2>Iniciar sesión</h2>
+
       <?php if (!empty($message)): ?>
         <p class="error-msg"><?= htmlspecialchars($message) ?></p>
       <?php endif; ?>
@@ -30,10 +31,16 @@ require_once(__DIR__ . '/procesar_login.php');
         <input type="submit" value="Ingresar">
         <p class="forgot-pass"><a href="#">¿Olvidaste tu contraseña?</a></p>
       </form>
+      <p id="mensaje-error" class="error-msg" hidden>Usuario o contraseña incorrectos.</p>
     </section>
   </main>
 
-  <?php include __DIR__ . '/../public/components/footer.html'; ?>
+<?php include("../../../../components/footer.php"); ?>
+
   <script src="/ID-Cultural/static/js/main.js"></script>
+  <script src="/ID-Cultural/static/js/navbar.js"></script>
+  <script src="/ID-Cultural/static/js/login.js"></script>
+
 </body>
+
 </html>

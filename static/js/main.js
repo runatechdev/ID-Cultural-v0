@@ -1,4 +1,4 @@
-// Función para incluir contenido HTML externo en un elemento con un ID específico
+// ✅ Inclusión dinámica de HTML
 async function includeHTML(id, file) {
   const el = document.getElementById(id);
   if (el) {
@@ -13,38 +13,36 @@ async function includeHTML(id, file) {
   }
 }
 
-// Cuando el DOM esté listo, se carga el footer y otros componentes
+// ✅ Cargar navbar y footer al iniciar
 document.addEventListener("DOMContentLoaded", () => {
-  includeHTML("footer-container", "/src/views/pages/public/components/footer.html");
+  includeHTML("navbar", "/ID-Cultural/src/views/pages/public/components/navbar.html");
+  includeHTML("footer", "/ID-Cultural/src/views/pages/public/components/footer.html");
 
-  // Si querés usar también un navbar, descomentá la siguiente línea:
-  // includeHTML("navbar-container", "/src/views/pages/public/components/navbar.html");
+  cargarNoticiasHome();
 });
 
-async function includeHTML(id, file) {
-    const el = document.getElementById(id);
-    if (el) {
-      const res = await fetch(file);
-      const html = await res.text();
-      el.innerHTML = html;
-    }
-  }
+// ✅ Renderizado de noticias en el home
+function cargarNoticiasHome() {
+  const contenedor = document.getElementById("contenedor-noticias");
+  if (!contenedor) return;
 
-  includeHTML("navbar", "/src/views/pages/public/components/navbar.html");
-  includeHTML("footer", "/src/views/pages/public/components/footer.html");
-  
-  
-  
-// Lógica del formulario de login
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("loginForm");
-  const errorMsg = document.getElementById("mensaje-error");
+  const lista = JSON.parse(localStorage.getItem("noticiasHome") || "[]");
+  const ultimas = lista.slice(-3).reverse();
 
  /* form.addEventListener("submit", function (e) {
     e.preventDefault(); // Evita que recargue la página
 
-    const usuario = document.getElementById("usuario").value.trim().toLowerCase();
-    const clave = document.getElementById("clave").value.trim();
+  ultimas.forEach(noticia => {
+    const card = document.createElement("div");
+    card.classList.add("noticia-card");
+
+
+    card.innerHTML = `
+      ${noticia.imagen ? `<img src="${noticia.imagen}" alt="Imagen de la noticia">` : ""}
+      <h3>${noticia.titulo}</h3>
+      <p>${noticia.contenido}</p>
+      <small>Fecha: ${noticia.fecha}</small>
+    `;
 
     // Validación de usuarios
     if (usuario === "admin" && clave === "1234") {
@@ -64,3 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });*/
 });
+    contenedor.appendChild(card);
+  });
+}
