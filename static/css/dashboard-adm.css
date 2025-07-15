@@ -125,3 +125,47 @@ main h1 {
     height: 30px;
   }
 }
+
+
+ /* <style>
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    }
+
+    main h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #D50032;
+      text-align: center;
+    }
+
+    main ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    main ul li {
+      margin: 15px 0;
+    }
+
+    main ul li a {
+      display: block;
+      padding: 15px;
+      background-color: #0075c4;
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    main ul li a:hover {
+      background-color: #005999;
+      transform: scale(1.02);
+    }
+  </style> */
