@@ -1,27 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor-noticias");
+  const lista = JSON.parse(localStorage.getItem("noticiasHome") || "[]");
 
-  fetch("/ID-Cultural-noticias/ID-Cultural-noticias/backend/api/listar_noticias.php")
-    .then(res => res.json())
-    .then(noticias => {
-      contenedor.innerHTML = ""; // Limpiar contenido previo
+  contenedor.innerHTML = "";
 
-      noticias.forEach(noticia => {
-        const card = document.createElement("div");
-        card.className = "noticia-card";
+  lista.forEach(noticia => {
+    const card = document.createElement("div");
+    card.classList.add("noticia-card");
 
-        card.innerHTML = `
-          <h3>${noticia.titulo}</h3>
-          <p>${noticia.contenido}</p>
-          <small><strong>Fecha:</strong> ${noticia.fecha}</small>
-          ${noticia.imagen ? `<img src="/ID-Cultural-noticias/ID-Cultural-noticias/backend/${noticia.imagen}" alt="${noticia.titulo}" loading="lazy" width="200">` : ""}
-        `;
+    card.innerHTML = `
+      ${noticia.imagen ? `<img src="${noticia.imagen}" alt="Imagen de la noticia">` : ""}
+      <h3>${noticia.titulo}</h3>
+      <p>${noticia.contenido}</p>
+      <small>${noticia.fecha}</small>
+    `;
 
-        contenedor.appendChild(card);
-      });
-    })
-    .catch(error => {
-      contenedor.innerHTML = "<p>No se pudieron cargar las noticias. Intentalo más tarde.</p>";
-      console.error("Error al cargar noticias:", error);
-    });
+    contenedor.appendChild(card);
+  });
 });
