@@ -1,13 +1,15 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/connection.php';
+// Asegúrate de que la ruta a tu conexión sea la correcta
+require_once __DIR__ . '/../db/database.sqlite'; 
 
 header('Content-Type: application/json');
 
-// Obtener email y password
+// Obtenemos los datos del formulario (de la versión de arriba)
 $email = strtolower(trim($_POST['email'] ?? ''));
 $password = trim($_POST['password'] ?? '');
 
+// Verificamos que no vengan vacíos (de la versión de arriba)
 if (!$email || !$password) {
     echo json_encode([
         "status" => "error",
@@ -17,35 +19,34 @@ if (!$email || !$password) {
 }
 
 $user = null;
-$origen = null;
 
-// Buscar primero en users
-$stmtUser = $pdo->prepare("SELECT id, email, password, role FROM users WHERE email = ?");
-$stmtUser->execute([$email]);
-$user = $stmtUser->fetch(PDO::FETCH_ASSOC);
+// --- LÓGICA COMBINADA ---
+// Primero, buscamos en la tabla 'usuarios' (nombre corregido)
+$stmt = $pdo->prepare("SELECT id, email, password, role FROM usuarios WHERE email = ?");
+$stmt->execute([$email]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($user) {
-    $origen = 'users';
-}
-
-// Si no se encontró en users, buscar en artistas
+// Si no se encontró, buscamos en la tabla 'artistas' (lógica de la versión de arriba)
 if (!$user) {
-    $stmtArtista = $pdo->prepare("SELECT id, email, password FROM artistas WHERE email = ?");
-    $stmtArtista->execute([$email]);
-    $artista = $stmtArtista->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("SELECT id, email, password FROM artistas WHERE email = ?");
+    $stmt->execute([$email]);
+    $artista = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Si lo encontramos como artista, le asignamos el rol manualmente
     if ($artista) {
         $artista['role'] = 'artista';
         $user = $artista;
-        $origen = 'artistas';
     }
 }
 
-// Verificación de contraseña
+// Ahora, verificamos la contraseña y gestionamos la sesión
 if ($user && password_verify($password, $user['password'])) {
-    $_SESSION['user'] = $user;
+    
+    // Guardamos los datos de sesión como los espera el navbar (de la versión de abajo)
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_role'] = $user['role'];
 
-    // Redirigir según rol
+    // Creamos la respuesta JSON con redirección (de la versión de arriba)
     switch ($user['role']) {
         case 'admin':
             $redirect = '/ID-Cultural/src/views/pages/user/dashboard-adm.php';
@@ -60,17 +61,18 @@ if ($user && password_verify($password, $user['password'])) {
             $redirect = '/ID-Cultural/src/views/pages/user/dashboard-user.php';
             break;
         default:
-            $redirect = '/ID-Cultural/src/views/pages/public/home.php';
+            $redirect = '/ID-Cultural/index.php';
             break;
     }
 
     echo json_encode([
         "status" => "ok",
         "role" => $user['role'],
-        "redirect" => $redirect,
-        "source" => $origen
+        "redirect" => $redirect
     ]);
+
 } else {
+    // Usuario o contraseña incorrectos
     echo json_encode([
         "status" => "error",
         "message" => "Usuario o contraseña incorrectos"
