@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 
 try {
-  $dbPath = $_SERVER['DOCUMENT_ROOT'] . "/ID-Cultural-noticias/ID-Cultural-noticias/backend/db/database.sqlite";
+  $dbPath = $_SERVER['DOCUMENT_ROOT'] . "/ID-Cultural/backend/db/database.sqlite";
   $conn = new PDO("sqlite:" . $dbPath);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

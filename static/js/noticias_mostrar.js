@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Ruta corregida: acceder al backend real
   
-  fetch("/ID-Cultural-noticias/ID-Cultural-noticias/src/views/pages/editor/listar_noticias.php")
+  fetch("/ID-Cultural/src/views/pages/editor/listar_noticias.php")
     .then((res) => res.json())
     .then((noticias) => {
       contenedor.innerHTML = "";
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
           card.classList.add("noticia-card");
 
           card.innerHTML = `
-            ${noticia.imagen ? `<img src="/ID-Cultural-noticias/ID-Cultural-noticias/backend/${noticia.imagen}" alt="Imagen de la noticia">` : ""}
+            ${noticia.imagen ? `<img src="/ID-Cultural/backend/${noticia.imagen}" alt="Imagen de la noticia">` : ""}
             <h3>${noticia.titulo}</h3>
             <p>${noticia.contenido}</p>
             <small>${new Date(noticia.fecha).toLocaleDateString()}</small>

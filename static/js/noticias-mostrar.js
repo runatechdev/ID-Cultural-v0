@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor-noticias");
 
-  fetch("/ID-Cultural-noticias/ID-Cultural-noticias/backend/api/listar_noticias.php")
+  fetch("/ID-Cultural/backend/api/listar_noticias.php")
     .then(res => res.json())
     .then(noticias => {
       contenedor.innerHTML = ""; // Limpiar contenido previo
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3>${noticia.titulo}</h3>
           <p>${noticia.contenido}</p>
           <small><strong>Fecha:</strong> ${noticia.fecha}</small>
-          ${noticia.imagen ? `<img src="/ID-Cultural-noticias/ID-Cultural-noticias/backend/${noticia.imagen}" alt="${noticia.titulo}" loading="lazy" width="200">` : ""}
+          ${noticia.imagen ? `<img src="/ID-Cultural/backend/${noticia.imagen}" alt="${noticia.titulo}" loading="lazy" width="200">` : ""}
         `;
 
         contenedor.appendChild(card);

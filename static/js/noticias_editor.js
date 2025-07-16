@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabla = document.getElementById("tabla-noticias").querySelector("tbody");
 
   function cargarNoticias() {
-    fetch("/ID-Cultural-noticias/ID-Cultural-noticias/backend/api/listar_noticias.php")
+    fetch("/ID-Cultural/backend/api/listar_noticias.php")
      
     .then(res => res.json())
       .then(lista => {
