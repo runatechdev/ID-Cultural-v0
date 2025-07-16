@@ -44,8 +44,7 @@ $csrf_token = $_SESSION['csrf_token'];
         <div id="form-message" class="form-message" hidden></div>
     </main>
 
-    <?php // include(APPROOT . '/views/components/footer.php'); 
-    ?>
+    <?php include('../../../components/footer.php'); ?>
 
     <script src="<?php echo BASE_URL; ?>static/js/borradores.js"></script>
 </body>
