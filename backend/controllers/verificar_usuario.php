@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Asegúrate de que la ruta a tu conexión sea la correcta
-require_once __DIR__ . '/../db/database.sqlite'; 
+require_once __DIR__ . '/../config/connection.php'; 
 
 header('Content-Type: application/json');
 
@@ -22,7 +22,7 @@ $user = null;
 
 // --- LÓGICA COMBINADA ---
 // Primero, buscamos en la tabla 'usuarios' (nombre corregido)
-$stmt = $pdo->prepare("SELECT id, email, password, role FROM usuarios WHERE email = ?");
+$stmt = $pdo->prepare("SELECT id, email, password, role FROM users WHERE email = ?");
 $stmt->execute([$email]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
