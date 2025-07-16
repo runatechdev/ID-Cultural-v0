@@ -1,50 +1,100 @@
-document.getElementById("form-borrador").addEventListener("submit", function (e) {
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById("form-borrador");
+  const categoriaSelect = document.getElementById('categoria');
+  const camposExtraContainer = document.querySelectorAll('.campos-extra');
+  const multimediaContainer = document.getElementById("multimedia-container");
+
+  // 1. Mostrar campos condicionales por categoría
+  categoriaSelect.addEventListener('change', function () {
+    camposExtraContainer.forEach((div) => {
+      div.style.display = 'none';
+    });
+
+    const categoriaSeleccionada = this.value;
+    const idCampo = 'campos-' + categoriaSeleccionada;
+    const divMostrar = document.getElementById(idCampo);
+
+    if (divMostrar) {
+      divMostrar.style.display = 'block';
+    }
+  });
+
+  // 2. Agregar al menos un input multimedia si no hay ninguno
+  if (multimediaContainer.children.length === 0) {
+    const multimediaInput = document.createElement("input");
+    multimediaInput.type = "text";
+    multimediaInput.name = "multimedia";
+    multimediaInput.placeholder = "Ej: https://youtu.be/...";
+    multimediaContainer.appendChild(multimediaInput);
+  }
+
+  // 3. Envío del formulario
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // 1. Selecciona el ícono dentro del botón
-    const saveIcon = e.target.querySelector(".fa-save");
-
-    // 2. Añade clases de Animate.css
+    const saveIcon = form.querySelector(".fa-save");
     saveIcon.classList.add('animate__animated', 'animate__rotateIn');
-    
-    // Opcional: muestra la alerta después de una breve demora
-    setTimeout(() => {
-        alert("✅ Borrador guardado correctamente.");
-    }, 500);
 
-    // 3. Quita las clases después de que la animación termine para poder reutilizarla
-    saveIcon.addEventListener('animationend', () => {
-        saveIcon.classList.remove('animate__animated', 'animate__rotateIn');
-    });
+    const formData = new FormData(form);
 
-    
-});
+    try {
+      const res = await fetch("/ID-Cultural/backend/controllers/guardar_borrador.php", {
+        method: "POST",
+        body: formData
+      });
 
-// Espera a que el documento esté listo
-document.addEventListener('DOMContentLoaded', () => {
+      const resultado = await res.json();
+      console.log("📥 Respuesta del servidor:", resultado);
 
-    const categoriaSelect = document.getElementById('categoria');
-    const todosLosCamposExtra = document.querySelectorAll('.campos-extra');
-
-    // Escucha cada vez que el usuario cambia la categoría
-    categoriaSelect.addEventListener('change', function() {
-        // 1. Oculta TODOS los campos extra primero
-        todosLosCamposExtra.forEach(function(div) {
+      if (resultado.status === "ok") {
+        setTimeout(() => {
+          alert("✅ Borrador guardado correctamente.");
+          form.reset();
+          camposExtraContainer.forEach((div) => {
             div.style.display = 'none';
-        });
+          });
 
-        // 2. Obtiene el valor seleccionado (ej: "musica")
-        const categoriaSeleccionada = this.value;
+          // Reiniciar multimedia con un solo input
+          multimediaContainer.innerHTML = '';
+          const nuevoInput = document.createElement("input");
+          nuevoInput.type = "text";
+          nuevoInput.name = "multimedia";
+          nuevoInput.placeholder = "Ej: https://youtu.be/...";
+          multimediaContainer.appendChild(nuevoInput);
+        }, 500);
+      } else {
+        alert("⚠️ Error al guardar:\n" + resultado.message);
+      }
 
-        if (categoriaSeleccionada) {
-            // 3. Construye el ID del div a mostrar (ej: "campos-musica")
-            const idDelDivAMostrar = 'campos-' + categoriaSeleccionada;
-            const divAMostrar = document.getElementById(idDelDivAMostrar);
+    } catch (error) {
+      console.error("❌ Error de conexión:", error);
+      alert("No se pudo guardar el borrador.\nVer consola para detalles.");
+    }
 
-            // 4. Si el div existe, lo muestra
-            if (divAMostrar) {
-                divAMostrar.style.display = 'block'; // O 'flex' si usas flexbox
-            }
-        }
+    saveIcon.addEventListener('animationend', () => {
+      saveIcon.classList.remove('animate__animated', 'animate__rotateIn');
     });
-});
+  });
+
+const validarBtn = document.getElementById("btn-enviar-validacion");
+if (validarBtn) {
+  validarBtn.addEventListener("click", async () => {
+    try {
+      const res = await fetch("/ID-Cultural/backend/controllers/enviar_validacion.php", {
+        method: "POST"
+      });
+      const resultado = await res.json();
+
+      if (resultado.status === "ok") {
+        alert("📤 Todos los borradores fueron enviados para validación.");
+      } else {
+        alert("⚠️ Error: " + resultado.message);
+      }
+    } catch (error) {
+      console.error("❌ Error al conectar:", error);
+      alert("No se pudo enviar los borradores.");
+    }
+  });
+}
+})
+ 
