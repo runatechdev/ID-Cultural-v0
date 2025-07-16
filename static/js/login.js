@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let destino = "";
         switch (resultado.role) {
           case "admin":
-            destino = "/ID-Cultural/src/views/pages/user/dashboard-adm.php";
+            destino = "/ID-Cultural/src/views/pages/admin/dashboard-adm.php";
             break;
           case "editor":
             destino = "/ID-Cultural/src/views/pages/editor/panel_editor.php";
