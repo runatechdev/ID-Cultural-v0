@@ -358,14 +358,3 @@ footer p {
   border-radius: 8px;
   margin-bottom: 15px;
 }
-
-.mensaje {
-  margin-top: 10px;
-  font-weight: bold;
-}
-.exito {
-  color: green;
-}
-.error {
-  color: red;
-}
