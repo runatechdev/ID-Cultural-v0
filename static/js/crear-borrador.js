@@ -76,12 +76,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. (Opcional) Lógica futura para btn-enviar-validacion
-  const validarBtn = document.getElementById("btn-enviar-validacion");
-  if (validarBtn) {
-    validarBtn.addEventListener("click", () => {
-      alert("🔒 Función 'Enviar para Validación' todavía en desarrollo.");
-      // Podés agregar lógica cuando tengas un archivo enviar_validacion.php
-    });
-  }
-});
+const validarBtn = document.getElementById("btn-enviar-validacion");
+if (validarBtn) {
+  validarBtn.addEventListener("click", async () => {
+    try {
+      const res = await fetch("/ID-Cultural/backend/controllers/enviar_validacion.php", {
+        method: "POST"
+      });
+      const resultado = await res.json();
+
+      if (resultado.status === "ok") {
+        alert("📤 Todos los borradores fueron enviados para validación.");
+      } else {
+        alert("⚠️ Error: " + resultado.message);
+      }
+    } catch (error) {
+      console.error("❌ Error al conectar:", error);
+      alert("No se pudo enviar los borradores.");
+    }
+  });
+}
+})
+ 
