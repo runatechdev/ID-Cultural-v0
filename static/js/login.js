@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             destino = "/ID-Cultural/src/views/pages/editor/panel_editor.php";
             break;
           case "validador":
-            destino = "/ID-Cultural/src/views/pages/validador/panel_validador.php";
+            destino = "/ID-Cultural/src/views/pages/auth/validador.php";
             break;
           default:
             errorMsg.textContent = "Rol desconocido.";
