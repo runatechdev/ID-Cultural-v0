@@ -48,7 +48,7 @@ if ($user && password_verify($password, $user['password'])) {
     // Redirigir según rol
     switch ($user['role']) {
         case 'admin':
-            $redirect = '/ID-Cultural/src/views/pages/user/dashboard-adm.php';
+            $redirect = '/ID-Cultural/src/views/pages/admin/dashboard-adm.php';
             break;
         case 'editor':
             $redirect = '/ID-Cultural/src/views/pages/editor/panel_editor.php';
