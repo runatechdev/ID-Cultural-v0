@@ -13,5 +13,12 @@
       <li><a class="menu" href="/ID-Cultural/src/views/pages/auth/login.php">Iniciar Sesion</a></li>
       <li><a class="btn" href="/ID-Cultural/src/views/pages/auth/registro.php">Crear cuenta</a></li>
     </ul>
+
+    
   </nav>
+ 
+
 </header>
+<body>
+    
+</body>

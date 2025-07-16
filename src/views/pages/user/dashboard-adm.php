@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Gestión - DNI Cultural</title>
-  <link rel="stylesheet" href="../../../../static/css/normalize.css">
-  <link rel="stylesheet" href="../../../../static/css/main.css">
+  <link rel="stylesheet" href="/ID-Cultural/static/css/normalize.css">
+  <link rel="stylesheet" href="/ID-Cultural/static/css/main.css">
   <style>
     main {
       max-width: 800px;
@@ -50,78 +50,48 @@
   </style>
 </head>
 <body>
-<?php include("../../../../components/navbar.php"); ?>
-  <header>
-    <div class="logo">
-      <img src="/ID-Cultural/static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo">
-    </div>
-    <nav>
-      <ul>
-        <li><a class="menu" href="/ID-Cultural/Index.php">Inicio </a></li>
-        <li><a class="menu" href="../../../../src/views/pages/auth/login.php">Cerrar Sesión </a></li>
+
+  <?php include("../../../../components/navbar.php"); ?>
+
   <main>
     <h1>Panel de Gestión</h1>
     <ul>
-  <li><a href="../../../../src/views/pages/user/abm_usuarios.html">
-    <img src="../../../../static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
-    ABM de Usuarios
-  </a>
-</li>
-
-  <li><a href="../../../../src/views/pages/user/abm_artitistas.html">
-    <img src="../../../../static/img/paleta-de-pintura.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
-    ABM de Artistas
-  </a>
-</li>
-
-  <li><a href="../../../../src/views/pages/user/blanqueo_clave_admin.html">
-    <img src="../../../../static/img/candado.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
-    Blanqueo de Clave(Admin)
-  </a>
-</li>
-
-  
-  <li><a href="../../../../src/views/pages/user/cambiar_clave.html">
-    <img src="../../../../static/img/correo-electronico.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
-    Cambiar Clave con Correo
-  </a>
-</li>
-    
-<li><a href="../../../../src/views/pages/user/estado_solicitud.html">
-    <img src="../../../../static/img/lectura.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
-    Ver Estado de Solicitud del Artista
-  </a>
-
-  <a class="panel-button" href="/src/views/pages/user/abm_artitistas.html">
-    <img src="/static/img/paleta-de-pintura.png" alt="Artistas">
-    Gestionar Artistas
-  </a>
-
-  <a class="panel-button" href="/src/views/pages/user/blanqueo_clave_admin.html">
-    <img src="/static/img/candado.png" alt="Reiniciar Clave">
-    Reiniciar Contraseña
-  </a>
-
-  <a class="panel-button" href="/src/views/pages/user/cambiar_clave.html">
-    <img src="/static/img/correo-electronico.png" alt="Cambiar Clave">
-    Cambiar por Correo
-  </a>
-
-  <a class="panel-button" href="/src/views/pages/user/estado_solicitud.html">
-    <img src="/static/img/lectura.png" alt="Estado">
-    Ver Solicitudes
-  </a>
-
-</div>
-
-
-
+      <li>
+        <a href="/ID-Cultural/src/views/pages/user/abm_usuarios.html">
+          <img src="/ID-Cultural/static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
+          ABM de Usuarios
+        </a>
+      </li>
+      <li>
+        <a href="/ID-Cultural/src/views/pages/user/abm_artitistas.html">
+          <img src="/ID-Cultural/static/img/paleta-de-pintura.png" alt="ABM de Artistas" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
+          ABM de Artistas
+        </a>
+      </li>
+      <li>
+        <a href="/ID-Cultural/src/views/pages/user/blanqueo_clave_admin.html">
+          <img src="/ID-Cultural/static/img/candado.png" alt="Blanqueo de Clave" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
+          Blanqueo de Clave (Admin)
+        </a>
+      </li>
+      <li>
+        <a href="/ID-Cultural/src/views/pages/user/cambiar_clave.html">
+          <img src="/ID-Cultural/static/img/correo-electronico.png" alt="Cambiar Clave" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
+          Cambiar Clave con Correo
+        </a>
+      </li>
+      <li>
+        <a href="/ID-Cultural/src/views/pages/user/estado_solicitud.html">
+          <img src="/ID-Cultural/static/img/lectura.png" alt="Estado de Solicitud" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
+          Ver Estado de Solicitud del Artista
+        </a>
+      </li>
+    </ul>
   </main>
 
- <?php include("../../../../components/footer.php"); ?>
+  <?php include("../../../../components/footer.php"); ?>
 
   <script src="/ID-Cultural/static/js/main.js"></script>
   <script src="/ID-Cultural/static/js/navbar.js"></script>
-
 </body>
 </html>
