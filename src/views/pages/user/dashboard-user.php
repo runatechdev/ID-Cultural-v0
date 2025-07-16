@@ -12,7 +12,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="../../../../static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo Santiago del Estero">
+      <img src="../../../static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo Santiago del Estero">
     </div>
     <nav>
       <ul>
@@ -26,8 +26,10 @@
 
     <section class="acciones">
       <button class="btn-dash" onclick="location.href='crear-borrador.php'">Crear Borrador</button>
-      <button class="btn-dash" onclick="location.href='ver-borradores.php'">Ver Borradores</button>
-      <button class="btn-dash" onclick="location.href='solicitudes.php'">Solicitudes Enviadas</button>
+      <!-- <button class="btn-dash" onclick="location.href='ver-borradores.php'">-->
+        <button class="btn-dash" onclick="location.href='/ID-Cultural/src/views/pages/public/mantenimiento.php'">Ver Borradores</button>
+      <!-- <button class="btn-dash" onclick="location.href='solicitudes.php'"> -->
+        <button class="btn-dash" onclick="location.href='/ID-Cultural/src/views/pages/public/mantenimiento.php'">Solicitudes Enviadas</button>
     </section>
 
     <section class="instrucciones">
