@@ -1,163 +1,287 @@
-/* Este es el contenedor que crea las 2 columnas */
-.wiki-layout {
-    display: flex;
-    gap: 30px; /* Espacio entre las columnas */
-    margin-top: 30px;
+/* Estilo responsivo para la imagen de portada */
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 30px;
+    animation: fadeInDown 1s ease-in-out;
 }
 
-/* La columna de contenido principal (ocupa más espacio) */
 .main-content {
-    flex: 3; /* Ocupa 3 partes del espacio disponible */
+    flex: 3;
+    padding: 0;
+    /* antes tenía padding */
+    width: auto;
+    /* o directamente no poner ningún width */
 }
 
-/* La columna de la barra lateral (ocupa menos) */
-.sidebar {
-    flex: 1; /* Ocupa 1 parte del espacio disponible */
-    min-width: 250px; /* Para que no se encoja demasiado */
+body {
+    background-color: #f2f2f2;
 }
 
-/* Estilo de la barra de búsqueda */
-.search {
-    text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f7f9fc;
-    border-radius: 8px;
-}
-
-.search form {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.search input, .search select {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.search input { flex-grow: 1; } /* El input de texto ocupa más espacio */
-
-.search button {
-    padding: 10px 20px;
-    background-color: var(--color-primario);
-    color: white;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-/* Sección de cada categoría (Música, Literatura, etc.) */
-.categoria {
-    margin-bottom: 40px;
-}
-
-.categoria h3 {
-    font-size: 1.8rem;
-    color: var(--color-primario);
-    border-bottom: 2px solid var(--color-acento);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-/* Contenedor de las tarjetas de artistas (¡ESTO FALTABA!) */
-.cards-container {
-    display: grid;
-    /* Crea una grilla flexible */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-/* Estilo de las tarjetas (cards) de artistas */
-.card {
+.container {
     background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* ✅ Esto centra */
+}
+
+
+.main-content,
+.sidebar {
+    padding: 10px 15px;
+}
+
+
+/* Estilo de las tarjetas (cards) */
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+    transform: translateY(-4px);
 }
 
 .card-info {
-    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-info h4 {
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #222;
 }
 
 .card-info p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #555;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .btn-biografia {
     display: inline-block;
     padding: 8px 16px;
-    background-color: var(--color-primario);
+    background-color: #3366cc;
     color: white;
     border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-biografia:hover {
+    background-color: #274a99;
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #3366cc;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card a {
+    color: #3366cc;
     text-decoration: none;
     font-weight: bold;
 }
 
+.card a:hover {
+    text-decoration: underline;
+}
+
+.card img {
+    max-width: 100%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* Botones de acción */
+.card button,
+.card a {
+    background-color: #3366cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.card button:hover,
+.card a:hover {
+    background-color: #28519b;
+}
+
+
+
+/* Estilo de la barra de búsqueda */
+.search {
+    text-align: center;
+    margin: 30px auto 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 700px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 15px;
+}
+
+
+.search form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.search input {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.search input,
+.search select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.search button {
+    padding: 10px 20px;
+    background-color: #3366cc;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.search button:hover {
+    background-color: #28519b;
+}
+
 /* Sidebar de artistas famosos */
+.sidebar {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.main-content {
+    flex: 3;
+}
+
 .sidebar h2 {
     font-size: 1.2rem;
     color: #444;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .famoso {
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    border-left: 4px solid #3366cc;
+    transition: transform 0.3s;
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.famoso:last-child {
-    border-bottom: none;
 }
 
 .famoso img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.famoso:hover {
+    transform: translateX(-5px);
 }
 
 .famoso h4 {
     margin: 0;
     font-weight: bold;
+    color: #3366cc;
 }
 
 .famoso p {
-    margin: 2px 0 0;
-    color: #666;
-    font-size: 0.9rem;
+    margin: 5px 0 0;
+    color: #555;
 }
 
-/* Mensaje de no resultados */
-.no-results {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #888;
-    padding: 40px;
+/* Contenido principal */
+.main-content {
+    width: 75%;
+}
+
+/* Sección por categorías */
+.categoria {
+    margin-bottom: 30px;
+}
+
+.categoria h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        order: 2;
+        margin-top: 20px;
+    }
+
+    .main-content {
+        order: 1;
+    }
+
+    .card h3,
+    .categoria h3 {
+        font-size: 1.1rem;
+    }
 }
