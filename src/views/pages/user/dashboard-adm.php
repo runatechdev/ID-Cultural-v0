@@ -57,12 +57,14 @@
     </div>
     <nav>
       <ul>
-        <li><a class="menu" href="/ID-Cultural/Index.php">Inicio </a></li>
+        <li><a class="menu" href="/index.php">Inicio </a></li>
         <li><a class="menu" href="../../../../src/views/pages/auth/login.php">Cerrar Sesión </a></li>
   <main>
     <h1>Panel de Gestión</h1>
     <ul>
-  <li><a href="../../../../src/views/pages/user/abm_usuarios.html">
+  <li>
+    <!-- <a href="../../../../src/views/pages/user/abm_usuarios.html"> -->
+      <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="../../../../static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
     ABM de Usuarios
   </a>
