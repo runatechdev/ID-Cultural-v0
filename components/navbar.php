@@ -38,7 +38,7 @@ require_once(__DIR__ . '/../config.php');
                         echo '<li><a class="menu" href="' . BASE_URL . 'src/views/pages/editor/panel_editor.php">Panel Editor</a></li>';
                         break;
                     case 'validador':
-                        echo '<li><a class="menu" href="' . BASE_URL . 'src/views/pages/validator/panel_validador.php">Panel Validador</a></li>';
+                        echo '<li><a class="menu" href="' . BASE_URL . 'src/views/pages/auth/validador.php">Panel Validador</a></li>';
                         break;
                 }
                 ?>
