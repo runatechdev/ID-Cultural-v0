@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
             destino = "/ID-Cultural/src/views/pages/editor/panel_editor.php";
             break;
           case "validador":
-            destino = "/ID-Cultural/src/views/pages/auth/validador.php";
+            destino = "/ID-Cultural/src/views/pages/validador/panel_validador.php";
             break;
           case "artista":
             destino = "/ID-Cultural/src/views/pages/user/dashboard-user.php";

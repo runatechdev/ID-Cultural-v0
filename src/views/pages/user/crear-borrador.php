@@ -18,8 +18,8 @@
     </div>
     <nav>
       <ul>
-        <li><a class="menu" href="src/views/pages/public/Index.html">Inicio </a></li>
-        <li><a class="menu" href="src/views/pages/auth/login.html">Cerrar Sesión </a></li>
+        <li><a class="menu" href="/ID-Cultural/src/views/pages/user/dashboard-user.php">Inicio </a></li>
+        <li><a class="menu" href="/ID-Cultural/src/views/pages/auth/login.php">Cerrar Sesión </a></li>
       </ul>
     </nav>
   </header>

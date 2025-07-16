@@ -54,7 +54,7 @@ if ($user && password_verify($password, $user['password'])) {
             $redirect = '/ID-Cultural/src/views/pages/editor/panel_editor.php';
             break;
         case 'validador':
-            $redirect = '/ID-Cultural/src/views/pages/auth/validador.php';
+            $redirect = '/ID-Cultural/src/views/pages/validador/panel_validador.php';
             break;
         case 'artista':
             $redirect = '/ID-Cultural/src/views/pages/user/dashboard-user.php';
