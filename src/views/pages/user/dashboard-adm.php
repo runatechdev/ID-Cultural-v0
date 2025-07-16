@@ -1,11 +1,15 @@
+<?php
+    // Se define la URL base para que todos los enlaces funcionen correctamente.
+    define('BASE_URL', '/ID-Cultural');
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Gestión - DNI Cultural</title>
-  <link rel="stylesheet" href="/ID-Cultural/static/css/normalize.css">
-  <link rel="stylesheet" href="/ID-Cultural/static/css/main.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/static/css/normalize.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>/static/css/main.css">
   <style>
     main {
       max-width: 800px;
@@ -51,47 +55,48 @@
 </head>
 <body>
 
-  <?php include("../../../../components/navbar.php"); ?>
+  <header>
+    <div class="logo">
+      <img src="<?php echo BASE_URL; ?>/static/img/SANTAGO-DEL-ESTERO-2022.svg" alt="Logo Santiago del Estero">
+    </div>
+    <nav>
+      <ul>
+        <li><a class="menu" href="<?php echo BASE_URL; ?>/index.php">Inicio</a></li>
+        <li><a class="menu" href="<?php echo BASE_URL; ?>/src/views/pages/auth/login.php">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <h1>Panel de Gestión</h1>
     <ul>
-      <li>
-        <a href="/ID-Cultural/src/views/pages/user/abm_usuarios.html">
-          <img src="/ID-Cultural/static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
-          ABM de Usuarios
-        </a>
-      </li>
-      <li>
-        <a href="/ID-Cultural/src/views/pages/user/abm_artitistas.html">
-          <img src="/ID-Cultural/static/img/paleta-de-pintura.png" alt="ABM de Artistas" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
-          ABM de Artistas
-        </a>
-      </li>
-      <li>
-        <a href="/ID-Cultural/src/views/pages/user/blanqueo_clave_admin.html">
-          <img src="/ID-Cultural/static/img/candado.png" alt="Blanqueo de Clave" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
-          Blanqueo de Clave (Admin)
-        </a>
-      </li>
-      <li>
-        <a href="/ID-Cultural/src/views/pages/user/cambiar_clave.html">
-          <img src="/ID-Cultural/static/img/correo-electronico.png" alt="Cambiar Clave" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
-          Cambiar Clave con Correo
-        </a>
-      </li>
-      <li>
-        <a href="/ID-Cultural/src/views/pages/user/estado_solicitud.html">
-          <img src="/ID-Cultural/static/img/lectura.png" alt="Estado de Solicitud" style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
-          Ver Estado de Solicitud del Artista
-        </a>
-      </li>
+      <li><a href="<?php echo BASE_URL; ?>/src/views/pages/user/abm_usuarios.php">
+        <img src="<?php echo BASE_URL; ?>/static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px; vertical-align: middle; margin-right: 10px;">
+        ABM de Usuarios
+      </a></li>
+      <li><a href="<?php echo BASE_URL; ?>/src/views/pages/user/abm_artitistas.php">
+        <img src="<?php echo BASE_URL; ?>/static/img/paleta-de-pintura.png" alt="ABM de Artistas" style="width:24px; height:24px; vertical-align: middle; margin-right: 10px;">
+        ABM de Artistas
+      </a></li>
+      <li><a href="<?php echo BASE_URL; ?>/src/views/pages/user/blanqueo_clave_admin.php">
+        <img src="<?php echo BASE_URL; ?>/static/img/candado.png" alt="Blanqueo de Clave" style="width:24px; height:24px; vertical-align: middle; margin-right: 10px;">
+        Blanqueo de Clave (Admin)
+      </a></li>
+      <li><a href="<?php echo BASE_URL; ?>/src/views/pages/user/cambiar_clave.php">
+        <img src="<?php echo BASE_URL; ?>/static/img/correo-electronico.png" alt="Cambiar Clave" style="width:24px; height:24px; vertical-align: middle; margin-right: 10px;">
+        Cambiar Clave con Correo
+      </a></li>
+      <li><a href="<?php echo BASE_URL; ?>/src/views/pages/user/estado_solicitud.php">
+        <img src="<?php echo BASE_URL; ?>/static/img/lectura.png" alt="Estado de Solicitud" style="width:24px; height:24px; vertical-align: middle; margin-right: 10px;">
+        Ver Estado de Solicitud del Artista
+      </a></li>
     </ul>
   </main>
 
-  <?php include("../../../../components/footer.php"); ?>
+  <div id="footer">
+      <?php include __DIR__ . '/../../../../components/footer.php'; ?>
+  </div>
 
-  <script src="/ID-Cultural/static/js/main.js"></script>
-  <script src="/ID-Cultural/static/js/navbar.js"></script>
+  <script src="<?php echo BASE_URL; ?>/static/js/main.js"></script>
 </body>
 </html>
