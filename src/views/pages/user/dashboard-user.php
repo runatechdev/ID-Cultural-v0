@@ -16,8 +16,8 @@
     </div>
     <nav>
       <ul>
-        <li><a class="menu" href="/src/views/pages/public/Index.html">Inicio </a></li>
-        <li><a class="menu" href="/src/views/pages/auth/login.html">Cerrar Sesión </a></li>
+        <li><a class="menu" href="/index.php">Inicio </a></li>
+        <li><a class="menu" href="/ID-Cultural/src/views/pages/auth/login.php">Cerrar Sesión </a></li>
       </ul>
     </nav>
   </header>
@@ -25,9 +25,9 @@
     <h1>Bienvenido, <span id="nombreUsuario">Artista</span></h1>
 
     <section class="acciones">
-      <button class="btn-dash" onclick="location.href='crear-borrador.html'">Crear Borrador</button>
-      <button class="btn-dash" onclick="location.href='ver-borradores.html'">Ver Borradores</button>
-      <button class="btn-dash" onclick="location.href='solicitudes.html'">Solicitudes Enviadas</button>
+      <button class="btn-dash" onclick="location.href='crear-borrador.php'">Crear Borrador</button>
+      <button class="btn-dash" onclick="location.href='ver-borradores.php'">Ver Borradores</button>
+      <button class="btn-dash" onclick="location.href='solicitudes.php'">Solicitudes Enviadas</button>
     </section>
 
     <section class="instrucciones">
