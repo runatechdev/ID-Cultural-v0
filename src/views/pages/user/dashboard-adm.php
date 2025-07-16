@@ -64,7 +64,7 @@
     <ul>
   <li>
     <!-- <a href="../../../../src/views/pages/user/abm_usuarios.html"> -->
-      <a href="../../../../src/views/pages/public/mantenimiento.php">
+    <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="../../../../static/img/perfil-del-usuario.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
     ABM de Usuarios
   </a>
@@ -76,51 +76,66 @@
   </a>
 </li>
 
-  <li><a href="../../../../src/views/pages/user/blanqueo_clave_admin.html">
+  <li>
+    <!-- <a href="../../../../src/views/pages/user/blanqueo_clave_admin.html"> -->
+    <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="../../../../static/img/candado.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
     Blanqueo de Clave(Admin)
   </a>
 </li>
 
   
-  <li><a href="../../../../src/views/pages/user/cambiar_clave.html">
+  <li>
+    <!-- <a href="../../../../src/views/pages/user/cambiar_clave.html"> -->
+    <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="../../../../static/img/correo-electronico.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
     Cambiar Clave con Correo
   </a>
 </li>
     
-<li><a href="../../../../src/views/pages/user/estado_solicitud.html">
+<li>
+    <!-- <a href="../../../../src/views/pages/user/estado_solicitud.html"> -->
+    <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="../../../../static/img/lectura.png" alt="ABM de Usuarios" style="width:24px; height:24px;">
     Ver Estado de Solicitud del Artista
   </a>
+</li>
 
-  <a class="panel-button" href="/src/views/pages/user/abm_artitistas.html">
-    <img src="/static/img/paleta-de-pintura.png" alt="Artistas">
+<li>
+  <!-- <a class="panel-button" href="/src/views/pages/user/abm_artitistas.html"> -->
+  <a href="../../../../src/views/pages/public/mantenimiento.php">
+  <img src="/static/img/paleta-de-pintura.png" alt="Artistas">
     Gestionar Artistas
   </a>
+</li>
 
-  <a class="panel-button" href="/src/views/pages/user/blanqueo_clave_admin.html">
-    <img src="/static/img/candado.png" alt="Reiniciar Clave">
-    Reiniciar Contraseña
-  </a>
+<li>
+  <!-- <a class="panel-button" href="/src/views/pages/user/blanqueo_clave_admin.html"> -->
+    <a href="../../../../src/views/pages/public/mantenimiento.php">  
+      <img src="/static/img/candado.png" alt="Reiniciar Clave">
+      Reiniciar Contraseña
+    </a>
+  </li>
 
-  <a class="panel-button" href="/src/views/pages/user/cambiar_clave.html">
+  <li>
+    <!-- <a class="panel-button" href="/src/views/pages/user/cambiar_clave.html"> -->
+    <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="/static/img/correo-electronico.png" alt="Cambiar Clave">
-    Cambiar por Correo
-  </a>
+      Cambiar por Correo
+    </a>
+  </li>
 
-  <a class="panel-button" href="/src/views/pages/user/estado_solicitud.html">
+  <li>
+    <!-- <a class="panel-button" href="/src/views/pages/user/estado_solicitud.html"> -->
+    <a href="../../../../src/views/pages/public/mantenimiento.php">
     <img src="/static/img/lectura.png" alt="Estado">
-    Ver Solicitudes
-  </a>
-
+      Ver Solicitudes
+    </a>
+    </li>
 </div>
-
-
-
   </main>
 
- <?php include("../../../../components/footer.php"); ?>
+<?php include("../../../../components/footer.php"); ?>
 
   <script src="/ID-Cultural/static/js/main.js"></script>
   <script src="/ID-Cultural/static/js/navbar.js"></script>
