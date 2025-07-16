@@ -31,16 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let destino = "";
         switch (resultado.role) {
           case "admin":
-            destino = "/ID-Cultural/src/views/pages/user/dashboard-adm.php";
+            destino = "/ID-Cultural/src/views/pages/admin/dashboard-adm.php";
             break;
           case "editor":
             destino = "/ID-Cultural/src/views/pages/editor/panel_editor.php";
             break;
           case "validador":
             destino = "/ID-Cultural/src/views/pages/validador/panel_validador.php";
-            break;
-          case "artista":
-            destino = "/ID-Cultural/src/views/pages/user/dashboard-user.php";
             break;
           default:
             errorMsg.textContent = "Rol desconocido.";

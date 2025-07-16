@@ -1,13 +1,15 @@
 <?php
 session_start();
-require_once __DIR__ . '/../config/connection.php';
+// Asegúrate de que la ruta a tu conexión sea la correcta
+require_once __DIR__ . '/../config/connection.php'; 
 
 header('Content-Type: application/json');
 
-// Obtener email y password
 $email = strtolower(trim($_POST['email'] ?? ''));
 $password = trim($_POST['password'] ?? '');
 
+
+// Verificamos que no vengan vacíos (de la versión de arriba)
 if (!$email || !$password) {
     echo json_encode([
         "status" => "error",
@@ -17,63 +19,29 @@ if (!$email || !$password) {
 }
 
 $user = null;
-$origen = null;
 
-// Buscar primero en users
-$stmtUser = $pdo->prepare("SELECT id, email, password, role FROM users WHERE email = ?");
-$stmtUser->execute([$email]);
-$user = $stmtUser->fetch(PDO::FETCH_ASSOC);
+// --- LÓGICA COMBINADA ---
+// Primero, buscamos en la tabla 'usuarios' (nombre corregido)
+$stmt = $pdo->prepare("SELECT id, email, password, role FROM users WHERE email = ?");
+$stmt->execute([$email]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($user) {
-    $origen = 'users';
-}
-
-// Si no se encontró en users, buscar en artistas
-if (!$user) {
-    $stmtArtista = $pdo->prepare("SELECT id, email, password FROM artistas WHERE email = ?");
-    $stmtArtista->execute([$email]);
-    $artista = $stmtArtista->fetch(PDO::FETCH_ASSOC);
-
-    if ($artista) {
-        $artista['role'] = 'artista';
-        $user = $artista;
-        $origen = 'artistas';
-    }
-}
-
-// Verificación de contraseña
 if ($user && password_verify($password, $user['password'])) {
-    $_SESSION['user'] = $user;
+    
+    // ----- CAMBIO 2: Guardamos los datos de sesión como los espera el navbar -----
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['user_role'] = $user['role']; // Asegúrate de que la columna se llame 'role' en tu tabla
 
-    // Redirigir según rol
-    switch ($user['role']) {
-        case 'admin':
-            $redirect = '/ID-Cultural/src/views/pages/user/dashboard-adm.php';
-            break;
-        case 'editor':
-            $redirect = '/ID-Cultural/src/views/pages/editor/panel_editor.php';
-            break;
-        case 'validador':
-            $redirect = '/ID-Cultural/src/views/pages/validador/panel_validador.php';
-            break;
-        case 'artista':
-            $redirect = '/ID-Cultural/src/views/pages/user/dashboard-user.php';
-            break;
-        default:
-            $redirect = '/ID-Cultural/src/views/pages/public/home.php';
-            break;
-    }
-
+    // Enviamos la respuesta JSON de éxito
     echo json_encode([
         "status" => "ok",
-        "role" => $user['role'],
-        "redirect" => $redirect,
-        "source" => $origen
+        "role" => $user['role']
     ]);
 } else {
+    // Usuario o contraseña incorrectos
     echo json_encode([
         "status" => "error",
-        "message" => "Usuario o contraseña incorrectos"
+        "message" => "Usuario o contraseña incorrectos."
     ]);
 }
 ?>
