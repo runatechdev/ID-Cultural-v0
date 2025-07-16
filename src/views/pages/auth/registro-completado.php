@@ -15,7 +15,7 @@
 
 <body>
 
-    <div id="navbar"></div>
+    <?php include("../../../../components/navbar.php"); ?>
 
     <main>
 
@@ -30,7 +30,7 @@
             <p>Se ha enviado un código de activación al correo electrónico proporcionado.</p>
             <p>Por favor, revise su bandeja de entrada (y la carpeta de spam) para continuar con la activación de su
                 cuenta.</p>
-            <a href="login.html" class="btn">Ir al inicio de sesión</a>
+            <a href="login.php" class="btn">Ir al inicio de sesión</a>
         </div>
 
         <br>
@@ -40,7 +40,8 @@
 
     </main>
 
-    <div id="footer"></div>
+        <?php include("../../../../components/footer.php"); ?>
+
     <script src="../../../../static/js/main.js"></script>
     <script src="../../../../static/js/registro.js"></script>
 </body>
