@@ -39,7 +39,7 @@ $page_title = "Panel de Gestión - ID Cultural";
                 </a>
             </li>
             <li class="dashboard-item">
-                <a href="<?php echo BASE_URL; ?>src/views/pages/admin/abm_artistas.php">
+                <a href="/ID-Cultural/src/views/pages/admin/abm_artistas.php">
                     <img src="<?php echo BASE_URL; ?>static/img/paleta-de-pintura.png" alt="Icono Artistas" class="dashboard-icon">
                     ABM de Artistas
                 </a>
